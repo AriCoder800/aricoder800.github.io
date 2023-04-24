@@ -34,14 +34,14 @@
   	height: 1300px;  	
   	background-color: ;
   	display: inline-block;
-  	padding:15px;
+  	padding:25px;
   	margin: auto;
   	
   	border: 1px solid white;
   }
   
   .columnOne{
-  	width:60%;
+  	width: 60%;
   	background-color: ;
   }
  
@@ -49,7 +49,19 @@
  .columnTwo {
  	width:40%;
  	background-color: ;
- 	
+ 
+ }
+ 
+ 
+ .innerColumn {
+ 	display:flex;
+ 	justify-content: center;
+ 	width:100%;
+ }
+ 
+ .subColumn {
+ 	display: block;
+ 	width:90%;
  }
  
  .petitionImg {
@@ -66,6 +78,27 @@
   	object-fit: cover;
   	
   }
+ 
+ 
+ .signForm {
+ 	padding:15px;
+ 	border-radius:10px;
+ 	border: none;
+ 	background-color: rgba(220,220,220,.7);
+ 	width:70%;
+ 	border:1px solid white;
+ }
+ 
+ 
+ .signature {
+ 	width:90%;
+ 	height: 80px;
+ 	
+ }
+ 
+ label {
+ 	color:white;
+ }
  
     </style>
 
@@ -105,6 +138,37 @@
 
 
     <div class="column columnTwo">
+    	
+    	<div class="innerColumn">
+    	   
+    	   <div class="subColumn">
+    	   
+    	<label for="name"> First Name </label><br/>
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+	
+		<label for="name"> Last Name </label><br/>
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+	
+	
+		<label for="name"> Email </label><br/>
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+	
+		<label for="name"> Phone </label><br/>
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+	
+		<label for="name"> State </label><br/>
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+	
+	<label for="name"> City </label><br/>
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+	
+	<label for="name"> Signature </label><br/>
+	<input  class="signForm signature"  type="text" id="id" name="name" > <br/><br/>
+	
+	      </div>
+	
+	
+	  </div>
 	
 	
 	  </div>
