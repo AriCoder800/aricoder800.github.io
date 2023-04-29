@@ -24,7 +24,7 @@ background-color:transparent;
  	color: black;
 text-decoration: none;
  	
- 	border: 1px solid red;
+
  } 
   
   
@@ -50,7 +50,7 @@ text-decoration: none;
     }
     
     .pageTitle {
-    	width: auto;
+    	width: 100%;
     	height: auto;
     	color: white;
     	font-size: 2em;
@@ -395,7 +395,10 @@ left: 0;
  	
  } 
 
-
+.loginLink {
+	border: 1px solid red;
+	color: red;
+}
 	
  
     
