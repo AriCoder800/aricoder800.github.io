@@ -400,5 +400,19 @@ left: 0;
 	color: red;
 }
 	
+	
+	.sendload {
+	background-color: black;
+position: relative;
+left: 0;
+	display: none;
+	justify-content:  center;
+	width: 99%;
+	color: gray;
+	border-radius: 5px;
+}  
+  
+         
+	
  
     
