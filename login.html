@@ -68,7 +68,7 @@
   .loadMine {
   	height:100px;
   	width:100px;
-  	
+  	display:none;
   	border: 16px solid gray;
   	border-radius:50%;
   	border-top: 16px solid rgba(10,20,200,.9);
@@ -197,12 +197,12 @@ left: 1.5em;
   <div class="input-group"> 		
   
   <div  class="buttoncase">
-  <button id="submit" type="submit" class="btn" name="login_user" onclick="loader(); loadertime()" >Login</button> 	
+  <button id="submit" type="submt" class="btn" name="login_user" onclick="loader(); loadertime()" >Login</button> 	
   </div>
   
   
    <div class="sendload" >
-   
+   <div class="loadMine"></div>
   </div>
   </div> 	
  
@@ -210,10 +210,10 @@ left: 1.5em;
   
   
 
- <div class="loader"></div>
+ 
   
     
-  <div class="loadMine"></div>
+  
    
   
  
@@ -254,7 +254,7 @@ sub.disabled = true;
     // make loader appear
   function loader() {
   lo =  document.getElementsByClassName("sendload")[0];
-   z= document.getElementsByClassName("buttoncase")[0];
+   z= document.getElementsByClassName("loadMine")[0];
  
  if (z.style.display!="none")
  {
