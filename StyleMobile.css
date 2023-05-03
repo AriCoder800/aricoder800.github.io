@@ -28,7 +28,7 @@ text-decoration: none
   
   
     body {
-    	background-color: rgba(20,20,40,.5);
+    	background-color: rgba(20,20,50,.5);
     	margin: 0;
   padding: 0;
   font-variant: small-caps;
@@ -46,7 +46,7 @@ text-decoration: none
     	width: 100vw;
     	height: 60px;
     	padding: 5px 0;
-    	background-color: rgba(150,150,170,.8);
+    	background-color: rgba(150,150,150,.8);
     	box-shadow: 0 1px 2px rgba(61,61,61,.5);
     	display: flex;
     	margin-bottom:1px;
@@ -89,7 +89,7 @@ text-decoration: none
   
   .petitionText {
   	width:100%;
-  	height: auto;
+  	
   	margin: auto;
   	background-color: rgba(220,220,220,.5);
   	border-radius: 0 0 25px 25px;
@@ -143,26 +143,33 @@ text-decoration: none
  
  
     	.containerOne {
-    		width:80vw;
-    		height:200px;
-    		background-color: rgba(200,200,200,.5);
+    		width:90vw;
+    		height:400px;
+    		background-color: rgba(200,200,220,.5);
     		margin: 50px auto 50px auto;
     		border-radius: 25px;
     		box-shadow: 0 1px 2px rgba(61,61,61,.5);
+    		display: block;
+    		
     	}
     	
     	.picOne {
-    		width:200px;
-    		height:100%;
+    		width:100%;
+    		height:200px;
     		overflow: hidden;
-    		border-radius: 25px 0 0 25px ;
+    		border-radius: 25px 25px 0 0 ;
     		float: left;
     		
     		
     	}
     	
     	.picOne img {
-    		height: 100%;
+    width: 100%;
+    height:100%;
+    		object-fit: cover;
+    		}
+    		
+    		
     		
     		.inText {
     			color:black;
@@ -198,12 +205,12 @@ text-decoration: none
        }
     	 
     	 .containerTwo {
-    	 	width: 73%;
-    	 	height:100%;
+    	 	width: 100%;
+    	 	height:300px;
     	 	background-color: ;
     	 	float:right;
     	 	margin: auto;
-    	 	border-radius:0 25px 25px 0;
+    	 	border-radius:0 0 25px 25px;
     	 	position: relative;
     	 	display: block;
     	 	justify-content: center;
@@ -282,12 +289,12 @@ text-decoration: none
  	  /* Signature pad styling start */
  	  
  	  .flex-row { 
- 	  width:100%;
+ 	  
  	  display: flex;
  	  
  	   }
  	    .wrapper {
- 	    	width:100%;
+ 	    	
  	    	border: 1px solid white;
  	    	 border-right: 0; 
  	    	 border-radius:15px 0 0 15px;
@@ -436,23 +443,30 @@ left: 0;
 	color: gray;
 	border-radius: 5px;
 }  
-
-
-
-
   
-    /* PetitionSingle */     
-    
-    
-    
-	
- .columnContainer {
+  
+  
+  /* petitionSingle */
+ 
+ 
+ .containerFlex {
+ 
+ display:flex;
+ justify-content: center;
+ width:100vw;
+ }
+ 
+ 
+  
+  
+  
+.columnContainer {
 
-  	width:90vw;
+  	width:95vw;
 
   	height: auto;
 
-  	display: ;
+border:1px solid red;
 
   	background-color:;
 
@@ -460,7 +474,7 @@ left: 0;
 
   	border: ;
 
-  	display: flex;
+  	display: block;
 
   	justify-content: center;
 
@@ -468,12 +482,13 @@ left: 0;
 
   }
 
-  
+          
+	
    .column {
 
   	
 
-  	height:auto;  	
+  	width:98%;
 
   	background-color: ;
 
@@ -493,7 +508,7 @@ left: 0;
 
   .columnOne{
 
-  	width: 60%;
+  	
 
   	background-color: ;
 
@@ -505,7 +520,7 @@ left: 0;
 
  .columnTwo {
 
- 	width:40%;
+ 	
 
  	background-color: ;
 
@@ -518,7 +533,7 @@ left: 0;
 	width:100%;
 	height: 300px;
 	
-	
+	display:none;
 }
  
 
@@ -559,6 +574,7 @@ left: 0;
   
   }
 
+  
     
  .petitionImg img {
 
@@ -643,7 +659,7 @@ left: 0;
 width:90%;
 height:90%;
 margin:auto;
-padding: 20px 0;
+
 }
  
 
