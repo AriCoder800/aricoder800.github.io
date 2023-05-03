@@ -1,1 +1,490 @@
-<!DOCTYPE html><html lang="en"><head>    <meta charset="utf-8"/>    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>    <meta name="viewport" content="width=device-width"/>  <link rel="stylesheet"  type="text/css" href="style.css">          <style type="text/css">                   .columnContainer {  	width:90vw;  	height: auto;  	display: ;  	background-color:;  	margin: auto;  	border: ;  	display: flex;  	justify-content: center;  	margin-top:20px;  }      .column {  	  	height: 1300px;  	  	background-color: ;  	display: inline-block;  	padding:10px;  	margin: auto;  	  	border: ;  }    .columnOne{  	width: 60%;  	background-color: ;  }   .columnTwo { 	width:40%; 	background-color: ;  } .progressBlock {	width:100%;	height: 300px;		}  .innerColumn { 	display:flex; 	justify-content: center; 	width:100%; }  .subColumn { 	display: block; 	width:90%; }  .petitionImg {  width: 100%;  height:300px;  background-color: black;  border-radius: 25px 25px 0 0;  overflow: hidden;  }    .petitionImg img {  	height:100%;  	width: 100%;  	object-fit: cover;  	  }   .signForm { 	padding:15px; 	border-radius:10px; 	border: none; 	background-color: rgba(220,220,220,.7); 	width:70%; 	border:1px solid white; }   .signature { 	width:90%; 	height: 80px; 	 }  label { 	color:white; }   .headerPetition { 	width:100%; 	display: flex; 	justify-content: center; 	margin-top: 40px; 	color:white; 	  	 }       </style>    <!--     Fonts     -->  </head><body>					<div class="HeaderOne">		<div class="pageTitle">			ChangingFlorida.org			</div>				</div>				<div class="HeaderOne">			</div>   <div class="headerPetition">  <h2 > "Free the People" Petition</h2></div><div class="columnContainer">    <div class="column columnOne">    	          <div class="petitionImg">            	<img src="picone.jpg">	        </div><div class="petitionText">			</div>    </div>    <div class="column columnTwo">   <div class="progressBlock">   	   	   	</div>    	    	<div class="innerColumn">    	       	   <div class="subColumn">    	       	<label for="name"> First Name </label><br/>	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>			<label for="name"> Last Name </label><br/>	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>				<label for="name"> Email </label><br/>	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>			<label for="name"> Phone </label><br/>	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>			<label for="name"> State </label><br/>	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>		<label for="name"> City </label><br/>	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>		<label for="name"> Signature </label><br/><div class="padContainer">			<div class="flex-row"> 		<div class="wrapper"> 			<canvas id="signature-pad" width="400" height="200">							</canvas> 		</div> 		<div class="clear-btn"> 		<button id="clear">				<span> Clear 				</span>				</button> 				</div> 				</div>			      </div>			  </div>			  </div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.5/signature_pad.min.js"		 integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ=="		 crossorigin="anonymous" 	 referrerpolicy="no-referrer">	 	 </script>	 	  <script>	  		  	 var canvas = document.getElementById("signature-pad");	  	 	  	  function resizeCanvas() { 	  	  var ratio = Math.max(window.devicePixelRatio || 1, 1); 	  	  	  	  	  	  canvas.width = canvas.offsetWidth * ratio; 	  	  	  	 canvas.height = canvas.offsetHeight * ratio; canvas.getContext("2d").scale(ratio, ratio);	  	 	  	  } 	  	  	  	  	  	  window.onresize = resizeCanvas; resizeCanvas(); 	  	  	  	  var signaturePad = new SignaturePad(canvas, { backgroundColor: 'rgb(250,250,250)' }); 	  	  	  	  document.getElementById("clear").addEventListener('click', function(){ signaturePad.clear(); }) 	  	  	  	  </script>		</body>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+
+    <meta name="viewport" content="width=device-width"/>
+
+
+
+  <link rel="stylesheet"  type="text/css" href="style.css">
+
+  
+
+    
+
+    <style type="text/css">
+
+    
+
+    
+
+    
+
+   
+
+  
+
+  .columnContainer {
+
+  	width:90vw;
+
+  	height: auto;
+
+  	display: ;
+
+  	background-color:;
+
+  	margin: auto;
+
+  	border: ;
+
+  	display: flex;
+
+  	justify-content: center;
+
+  	margin-top:20px;
+
+  }
+
+  
+
+  
+
+  .column {
+
+  	
+
+  	height: 1300px;  	
+
+  	background-color: ;
+
+  	display: inline-block;
+
+  	padding:10px;
+
+  	margin: auto;
+
+  	
+
+  	border: ;
+
+  }
+
+  
+
+  .columnOne{
+
+  	width: 60%;
+
+  	background-color: ;
+
+  }
+
+ 
+
+ 
+
+ .columnTwo {
+
+ 	width:40%;
+
+ 	background-color: ;
+
+ 
+
+ }
+
+ 
+.progressBlock {
+	width:100%;
+	height: 300px;
+	
+	
+}
+ 
+
+ .innerColumn {
+
+ 	display:flex;
+
+ 	justify-content: center;
+
+ 	width:100%;
+
+ }
+
+ 
+
+ .subColumn {
+
+ 	display: block;
+
+ 	width:90%;
+
+ }
+
+ 
+
+ .petitionImg {
+
+  width: 100%;
+
+  height:300px;
+
+  background-color: black;
+
+  border-radius: 25px 25px 0 0;
+
+  overflow: hidden;
+  
+  
+  }
+
+  
+
+  .petitionImg img {
+
+  	height:100%;
+
+  	width: 100%;
+
+  	object-fit: cover;
+
+  	
+
+  }
+
+ 
+
+ 
+
+ .signForm {
+
+ 	padding:15px;
+
+ 	border-radius:10px;
+
+ 	border: none;
+
+ 	background-color: rgba(220,220,220,.7);
+
+ 	width:70%;
+
+ 	border:1px solid white;
+
+ }
+
+ 
+
+ 
+
+ .signature {
+
+ 	width:90%;
+
+ 	height: 80px;
+
+ 	
+
+ }
+
+ 
+
+ label {
+
+ 	color:white;
+
+ }
+
+ 
+
+ 
+
+ .headerPetition {
+
+ 	width:100%;
+
+ 	display: flex;
+
+ 	justify-content: center;
+
+ 	margin-top: 40px;
+
+ 	color:white;
+
+ 	
+
+ 
+
+ 	
+
+ }
+
+ 
+.textInner {
+width:90%;
+height:90%;
+margin:auto;
+padding-top: 10px;
+}
+ 
+
+ 
+
+    </style>
+
+
+
+    <!--     Fonts     -->
+
+  
+
+
+
+</head>
+
+
+
+<body>
+
+	
+
+	
+
+	
+
+	
+
+	<div class="HeaderOne">
+
+		<div class="pageTitle">
+
+			ChangingFlorida.org
+
+			</div>
+
+		
+
+		</div>
+
+		
+
+		<div class="HeaderOne">
+
+			</div>
+
+
+
+   <div class="headerPetition">
+
+  
+
+<h2 > "Free the People" Petition</h2>
+
+
+
+</div>
+
+
+
+<div class="columnContainer">
+
+
+
+
+
+
+
+    <div class="column columnOne">
+
+    	
+
+          <div class="petitionImg">
+
+            	<img src="picone.jpg">
+
+	        </div>
+
+
+
+<div class="petitionText">
+    
+    <div class="textInner">
+
+	pellentesque veritus dicat dicant finibus appetere alienum class regione aptent sumo voluptatum mnesarchum cetero instructior aenean sem eos lacus tempor volutpat vocent appetere etiam donec periculis atomorum utinam condimentum salutatus felis habitasse tractatos lorem adversarium delicata habemus felis inimicus epicurei aliquip habitant atqui fastidii te elit regione delectus nulla reque perpetua maiestatis mucius ante turpis finibus quisque regione molestiae repudiare litora perpetua ubique eripuit inani fastidii parturient leo moderatius mediocrem deserunt integer facilisi accusata putent eos integer nulla debet accommodare mediocritatem facilis orci expetenda definiebas esse dictas ultricies hac expetenda orci fabellas ei nominavi accusata molestiae movet nonumes auctor dicam fringilla epicuri leo verear explicari magnis fabulas comprehensam adhuc suavitate nisi deseruisse veri malesuada mattis convallis graecis graecis veniam causae elementum enim ridiculus sit corrumpit blandit repudiandae simul mediocrem quem tamquam alia latine dicta ut imperdiet veri cubilia congue deserunt eget malesuada ut consequat sumo auctor mandamus expetenda verear sumo ridiculus sit postea sagittis netus porttitor pellentesque viris salutatus lorem eros regione accusata voluptaria principes feugait natum gloriatur esse corrumpit ultricies feugait efficitur omittantur dignissim error singulis inani amet percipit inani vim deseruisse inceptos mazim eget netus altera nihil pretium omittantur maiestatis ridens no hendrerit reque necessitatibus senectus pro possim persecuti verear malorum nisl voluptatum idque at dictum idque regione dapibus legere lobortis tractatos definitionem reprimique vitae natum noluisse postea vulputate scelerisque montes decore gloriatur scripta tellus veniam ponderum menandri falli omittam sagittis eum in aliquam hendrerit postea vero ac dissentiunt doctus tincidunt atqui veritus placerat sea ne nam ne cum simul tale eros simul suas nostrum vivendo fringilla habitant tation vituperatoribus propriae alienum aenean dicam litora et habeo suavitate purus hac velit civibus an donec adipisci aliquid penatibus dignissim unum neglegentur auctor scripta laoreet sociis deseruisse gloriatur nisl prompta cras fuisset aliquam salutatus laoreet reformidans noluisse scripserit pericula splendide
+	</div>
+	
+
+	</div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <div class="column columnTwo">
+
+
+   <div class="progressBlock">
+   	
+   	
+   	</div>
+    	
+
+    	<div class="innerColumn">
+
+    	   
+
+    	   <div class="subColumn">
+
+    	   
+
+    	<label for="name"> First Name </label><br/>
+
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+
+	
+
+		<label for="name"> Last Name </label><br/>
+
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+
+	
+
+	
+
+		<label for="name"> Email </label><br/>
+
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+
+	
+
+		<label for="name"> Phone </label><br/>
+
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+
+	
+
+		<label for="name"> State </label><br/>
+
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+
+	
+
+	<label for="name"> City </label><br/>
+
+	<input  class="signForm"  type="text" id="id" name="name" > <br/><br/>
+
+	
+
+	<label for="name"> Signature </label><br/>
+<div class="padContainer">
+	
+	
+	
+<div class="flex-row"> 
+	
+	<div class="wrapper"> 
+	
+	
+	<canvas id="signature-pad" width="400" height="200">
+		
+		
+		
+	</canvas> 
+	
+	</div> 
+	
+	<div class="clear-btn"> 
+	
+	<button id="clear">
+		
+		<span> Clear 
+		
+		</span>
+		
+		</button> 
+		
+		</div> 
+		
+		</div>
+	
+	
+
+	      </div>
+
+	
+
+	
+
+	  </div>
+
+	
+
+	
+
+	  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.5/signature_pad.min.js"
+	
+	 integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ=="
+	
+	 crossorigin="anonymous" 
+	 referrerpolicy="no-referrer">
+	 
+	 </script>
+	 
+	  <script>
+	  	
+	  	 var canvas = document.getElementById("signature-pad");
+	  	 
+	  	  function resizeCanvas() { 
+	  	  var ratio = Math.max(window.devicePixelRatio || 1, 1); 
+	  	  
+	  	  
+	  	  canvas.width = canvas.offsetWidth * ratio; 
+	  	  
+	  	 canvas.height = canvas.offsetHeight * ratio; canvas.getContext("2d").scale(ratio, ratio);
+	  	 
+	  	  } 
+	  	  
+	  	  
+	  	  window.onresize = resizeCanvas; resizeCanvas(); 
+	  	  
+	  	  var signaturePad = new SignaturePad(canvas, { backgroundColor: 'rgb(250,250,250)' }); 
+	  	  
+	  	  document.getElementById("clear").addEventListener('click', function(){ signaturePad.clear(); }) 
+	  	  
+	  	  </script>
+	
+	
+
+
+</body>
