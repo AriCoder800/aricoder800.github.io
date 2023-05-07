@@ -385,14 +385,7 @@ left: 0;
 }
 
 .btn {
-  width: 80vw;
-  padding: 20px; 
-  font-size: 15px; 
-  color: black; 
-  background-color: black;
-  transition: .5s;
-  border: 1px groove white; 
-  border-radius: 25px;
+
  } 
 
 
@@ -663,4 +656,9 @@ margin:auto;
 }
  
 
- 
+ .imagePreview {
+height: 60vw;
+width: 80vw;
+
+}
+
