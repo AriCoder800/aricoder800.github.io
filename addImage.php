@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+
+    <meta name="viewport" content="width=device-width"/>
+
+
+
+  <link rel="stylesheet"  type="text/css" href="style.css">
+
+  
+      <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="StyleMobile.css"> 
+  
+   <link rel="stylesheet" type="text/css" media="screen and (min-width:900px)" href="StyleWide.css">  
+
+    
+
+    <style type="text/css">
+
+    
+
+    
+
+    
+
+
+
+    </style>
+
+
+
+    <!--     Fonts     -->
+
+  
+
+
+
+</head>
+
+
+
+<body>
+
+	
+
+	
+
+	
+
+	
+
+	<div class="HeaderOne">
+	    <div class="pageTitle creating">
+Image 
+</div>
+			</div>
+			
+			
+
+			
+		
+		
+<form class="formadd" method="post" action="petImg.php"  enctype="multipart/form-data"> 
+		
+		<h1>Add an Image</h1>
+
+<h2>Petitions with images are more effective</h2>
+		
+		 
+		     
+	 
+		 
+		  <div class="imagePreview"> 
+		   <div class="centerAll">
+		       Upload Image
+		       
+		  <input type="file" style="display:none"  id="file" name="picture"  accept="image/*" onchange="previewFile()">         
+		        <img id="preview" src="addImg.png" align="center" onclick="document.getElementById('file').click();"  alt="Image preview..." >
+		       
+		   </div>   
+		  </div>
+		   
+		   
+		    <br/>
+		    <br/>
+	
+		 <div class="stepsContainer" >
+		 
+		 
+		 
+		 <div class="floatR">
+		 	 <a href="createStory.html">
+		 	  <div class="stepsBtn btn">
+		   back  
+ </div>
+ </a>
+ 
+    <a href="addImage.html">
+		<div class="stepsBtn btn">
+		  next   
+		 </div>		 
+		 </a>
+		 </div>
+		 
+		 
+		 </div>
+		 
+		   
+		    </form>
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		    
+		    <br/>
+		    <br/>
+		
+		<div class="tipsBlock">
+		    
+<span>Tips</span>
+
+<div class="inlineBlock">
+    
+    <div class="smallIcon inline">
+        <img src="greenCheck.png" alt="">
+        </div> <div class="bold inline">Do</div>
+
+</div>
+
+Use a close-up image of a person or animal that conveys emotion
+
+Use a simple image with a good color contrast
+
+Use image of public figures or local landmarks if applicable
+
+<div class="inlineBlock">
+    
+    <div class="smallIcon inline">
+        <img src="redX.png" alt="">
+        </div> <div class="bold inline">Don't</div>
+
+</div>
+
+Avoid images with text
+
+Avoid busy images
+
+Don't show graphic violence or sexual content.
+		    
+		    </div>
+
+</body>
