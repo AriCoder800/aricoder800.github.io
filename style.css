@@ -833,14 +833,23 @@ background-color: rgba(100,80,100,.3);
 	height:50%;
 	justify-content: center;
 	position:relative;
+	transition: 1s;
 	}
 	
 	.adminSub:hover {
 	background-color: rgba(220,220,220, .3);
-transform: scale(1.1,1.1);
+animation: clicked 1s 2 linear ;
 	
 	}
 	
+	
+	@keyframes clicked {
+0% {	transform: scale(1.1,1.1);}
+
+50% {transform: scale(1,1);}
+
+100% {	transform: scale(1.1,1.1);}	
+	}
 
 .vert {
 	align-self:center;
