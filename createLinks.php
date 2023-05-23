@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();ob_start();
 if (!isset($_SESSION['username']))
  { 	
  $_SESSION['msg'] = "You must log in first"; 	header('location: login.php'); 
@@ -24,7 +24,7 @@ if (!isset($_SESSION['username']))
 <html lang="en">
 
 <head>
-
+ <title>Create Links</title>
     <meta charset="utf-8"/>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -105,7 +105,7 @@ Add Links
 			
 		
 		
- <form class="form"  method="post" action="createLinks.php" > 	<?php include('errors.php'); ?> 	
+ <form class="form"  method="post" action="addContent.php" > 	<?php include('errors.php'); ?> 	
 		
 		<h1>Add a new link</h1>
 
@@ -147,7 +147,7 @@ Add Links
  
    
 		<div class="stepsBtn btn">
-		    <button id="submit" type="submit" class="btnContent" name="new_link" onclick="loader(); loadertime()" >Add Link</button> 	
+		    <button id="submit" type="submit" class="btnContent" name="add_link" onclick="loader(); loadertime()" >Add Link</button> 	
 		 </div>		 
 		 
 		 
@@ -162,6 +162,7 @@ Add Links
 		    
 		    </form>
 		    
+		  <a href="links.php"> <div class="stepsBtn">Go to Links Page</div></a>
 		    <br/>
 		    <br/>
 		

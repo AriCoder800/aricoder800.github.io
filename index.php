@@ -8,23 +8,23 @@
 
 <head>
 
-	
+	<title>Change Florida Today </title>
 
 	
 
-	 <link rel="image_src" href="https://changefloridatoday.com/coverNew.jpg">
+	 <link rel="image_src" href="https://aricoder800.github.io/cover.jpg">
 
 	
 
 		<meta property="og:type" content="website" /> 
 
-	<meta property="og:image" content="https://changefloridatoday.com/coverNew.jpg" /> 
+	<meta property="og:image" content="https://aricoder800.github.io/cover.jpg" /> 
 
 <meta property="og:description" content="Your signature matters. Join us in making Florida better." /> 
 
-<meta property="og:url"content="https://changefloridatoday.com" /> 
+<meta property="og:url"content="https://aricoder800.github.io" /> 
 
-<meta property="og:title" content="Lets change Florida one signature at a time" />
+<meta property="og:title" content="Lets chang Floriad one signature at a time" />
 
 <meta property="fb:app_id" content="966242223397117">
 
@@ -110,7 +110,7 @@
 			
 
 		<div class="mainTitle"	>ChangingFlorida.org</div>
-	<a href="loginAdmin.php">	<div class="loginClick"> Login </div> </a>
+	<a href="loginAdmin.html">	<div class="loginClick"> Login </div> </a>
 		
 
 			</div>
