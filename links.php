@@ -1,18 +1,13 @@
-<?php include('db_connect.php'); 
-
-
-
-?> 
-
-
-
-
-
+<?php
+header('refresh:5');
+?>
 <!DOCTYPE html>
 
 <html lang="en">
 
 <head>
+
+
 
     <meta charset="utf-8"/>
 
@@ -54,7 +49,7 @@
     }
 
     .linkBox:hover {
-    transform: scale(.9);
+    
     background-color: rgba(200,200,210,.6);
     }
 
@@ -70,6 +65,8 @@ margin-bottom:-2px;
   font-size:15px;
   color:rgba(220,220,220,.9);
   }
+
+
 
 
     </style>
@@ -119,49 +116,53 @@ Links
 		
 		<br/>
 				<br/>
-		
-		
-		 <div class='linkBox'> 
-		 	     
-		 	
-		 	 <div class='linkDiv'></div>
-		 	
-		 	<span class="linkTitle"> <p>New site to visit</p></span>
-		 	<span class="linkAddress"> <p>someaddress.com</p>  </span>  
-		 	     
-		 	     <p>ignota iusto magnis fusce conubia volutpat elitr vituperata urna deterruisset placerat semper consequat ponderum referrentur feugait vidisse assueverit autem convallis</p>
-		 	 </div>
-		 	 
-		 			<br/>		 	 
+
 		
 		<?php
+include('db_connect.php');
 
-$query = "SELECT title, link FROM Links"; 
-  	 	 	 if($result = mysqli_query($db, $query)) 
-  	 	 	 { 
-  	 	
-  	 	 	 while($row = mysqli_fetch_assoc($result)) 
-  	 	 	 { 
-  
+
   	 	 	 
+	if ($db)
+	{
+	
+	}
+  	
+  	$sql = "SELECT title, link FROM Links";
+  	 	 if ($queryl = mysqli_query($db,$sql))
+  	 	 {
+  	 	 
+  	 	 
+  	 	 
+  	 	 while ($rowl = mysqli_fetch_assoc($queryl))
+  	 	 {
+  	 	 $title = $rowl['title'];
+  	 	 $link = $rowl['link'];
+  	 	
+  	 	 
 echo"
- <div class="linkBox"> 
+ <div class='linkBox'> 
 		 	     
-		 	 <a href= '$row['link']'>
-		 	 <div class="linkDiv"></div>
+		 	 <a href=$link>
+		 	 <div class='linkDiv'></div>
 		 	 </a>
-		 	 
-		 	 <p>$row['title']</p>    
+		 	 <h2>$title</h2>
+		 	 <p>$link</p>    
 		 	     
 		 	 </div>
 		 	 
 		 			<br/>		 	 
 		 	 
-
-	";
-	
+";
 
 	
+
+	
+  	 	 }
+  	 	 
+  	 	 
+  	 	 }
+  	 	 
 		
 		
 
@@ -169,12 +170,15 @@ echo"
 		 	 
 		
 		 	 
-		 			 	}
-  	 	 	 }
+		 			 	
+  	 	 	 
   	 	 	
 		 
 		
 		 
 		?>
+
+		
+
 
 </body>

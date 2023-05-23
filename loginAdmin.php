@@ -1,7 +1,4 @@
-<?php include('serverReg.php'); 
-?> 
-
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html>
 
   <head> 
@@ -9,104 +6,62 @@
   <title>Login</title> 
   
   
+      <meta charset="utf-8"/>
+
+    
+    
+    
+  
  
 
-<!-- theme color for browser address bar -->
-  	<meta name="theme-color" content="#000000" />
-<!-- Windows Phone --> 
-<meta name="msapplication-navbutton-color" content="#000000"> 
-<!-- iOS Safari --> 
-<meta name="apple-mobile-web-app-capable" content="yes"> 
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
   	
-
-
-
 
   
   <link rel="stylesheet" type="text/css" href="style.css"> 
   
-  
-  	  
+ 
   	 
   
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
-	
-	<link href="https://fonts.googleapis.com/css?family=Audiowide|Gaegu|Montserrat|Permanent+Marker" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-  
-  <style>
-  
-  
-  .loadMine {
-  	height:100px;
-  	width:100px;
-  	
-  	border: 16px solid gray;
-  	border-radius:50%;
-  	border-top: 16px solid rgba(10,20,200,.9);
-  	animation: spin 2s linear infinite;
-  }
-  
-  @keyframes spin {
-  	
-  	0% {transform: rotate(0deg); }
-  	100% {transform:rotate(360deg); }
-  }
-  
-  .passcase {
-  height: 60px;
-  
-  }
-  
-  .see {
-  position: relative;
-
-  bottom: 70%;
-  width: 20px;
-  left: 85%;
-  padding:10px;
-  display: block;
-  }
-  
-  
-  
-  
-  h1 {
-  	font-size:14px;
-  	 overflow: hidden; 
-  	 text-align: center; 
-  	 padding: 10px;
-  	 } 
-
-
-
-  
-  </style>
-  
-  
-  
-  </head> 
-  <body> 
-  
-  
-  
-<br />
-  
-  
-
  
   
   
+	
+
+
+  <style> 
+    
+   
   
-    <h2 class="logintitle">LOGIN</h2> 
+    
+   
+
+    
+   </style>
+   
+    </head> 
+    
+  <body> 
+  
+  
+ 
+  <br/>
+  
+
+ <?php
+
+echo 'hello';
+
+?>
+  
+  
+  
+    <h2 class="logintitle">LOGIN PETITIONER</h2> 
    
   
   
-  <form class="form"  method="post" action="login.php" > 	<?php include('errors.php'); ?> 	
+  <form class="form"  method="post" action="login.html" > 	<?php include('errors.php'); ?> 	
   
   <div class="input-group"> 		<label>Username or Email</label> 		
   <input   id="username" type="text" name="username"  onkeyup="activate(this, 'submit', 'password')"> 	
@@ -122,31 +77,40 @@
   
   </div>
   </div> 	
-  
+ 
+ 
+ </form> 
   <div class="input-group"> 		
-  
+
+
+
+<a href="admin.html">
   <div  class="buttoncase">
-  <button id="submit" type="submit" class="btn" name="login_user" onclick="loader(); loadertime()" >Login</button> 	
+  <button id="submit" class="btn"  onclick="loader(); loadertime()" >Login</button> 	
   </div>
+  </a>  
   
   
    <div class="sendload" >
-   <div class="loadMine"></div>
-  </div>
-  </div> 	
- 
-  
-  
-  
+       
+       
+  <div class="loaderMain">
+      
+      </div>
 
  
   
-    
-  
-   
-  
+ 
+  </div>
+  </div> 	<!-- end input group -->
  
   
+
+      
+      
+      
+  </div>
+
   
   <script>
   
@@ -183,7 +147,7 @@ sub.disabled = true;
     // make loader appear
   function loader() {
   lo =  document.getElementsByClassName("sendload")[0];
-   z= document.getElementsByClassName("buttoncase")[0];
+   z= document.getElementsByClassName("btn")[0];
  
  if (z.style.display!="none")
  {
@@ -236,3 +200,14 @@ if ( pas.type==='password')
   
   </body> 
   </html>
+ 
+  
+  
+
+ 
+  
+  
+  
+   
+   
+  
