@@ -1,0 +1,379 @@
+<?php session_start(); 
+if (!isset($_SESSION['username']))
+ { 	
+ $_SESSION['msg'] = "You must log in first"; 	header('location: login.php'); 
+ }
+  if (isset($_GET['logout'])) 
+  { 	
+  session_destroy(); 	unset($_SESSION['username']); 	header("location: login.php"); 
+  } 
+  
+  include('db_connect.php');  
+  
+  $sqlp ="SELECT entry FROM Access WHERE id =1";
+    if ($queryp = mysqli_query($db,$sqlp))
+    {
+    while ($rowp = mysqli_fetch_assoc($queryp))
+    {
+    $comp = $rowp['entry'];
+    }
+  }
+  
+  $pass = $_SESSION['pass'];
+  $id = $_SESSION['id'];
+  $level = $_SESSION['level'];
+  
+ if ($pass != $comp) 
+ {
+  $_SESSION['msg'] = "not authorized"; 	header('location: admins.php'); 
+ }
+ 
+ 
+
+ 
+  ?>      
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<title>Admin Edit</title>
+
+    <meta charset="utf-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+
+    <meta name="viewport" content="width=device-width"/>
+
+
+
+  <link rel="stylesheet"  type="text/css" href="style.css">
+
+  
+      <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="StyleMobile.css"> 
+  
+   <link rel="stylesheet" type="text/css" media="screen and (min-width:900px)" href="StyleWide.css">  
+
+    
+
+    <style type="text/css">
+
+    
+
+    .adminEditBox {
+    width: 90vw;
+    padding:10px;
+    border-top: 1px solid rgba(220,220,220,.5);
+    border-bottom: 1px solid rgba(20,20,20,.5);
+    margin: auto;
+    color:white;
+    font-size:18px;
+    background-color: rgba(20,20,20,.7);
+    border-radius: 25px;
+    transition: .5s;
+    position:relative;
+    }
+
+    
+.linkTitle {
+font-size:20px;
+font-weight:700;
+margin-bottom:-2px;
+
+}
+  
+  
+  .linkAddress {
+  font-size:15px;
+  color:rgba(220,220,220,.9);
+  }
+
+.removeBtn {
+height:60px;
+width:100%;
+display:flex;
+    justify-content:center;
+    align-items:center;
+background-color:red;
+border-radius:20px;
+
+transition:.5s;
+}
+
+
+.removeBtn:hover {
+background-color:rgba(220,10,10,.7);
+}
+
+.warnBox {
+width: 500px;
+height: 300px;
+background-color:rgba(200,200,200,.9);
+border:2px solid white;
+
+border-radius:25px;
+position:fixed;
+top:50vh;
+left:50vw;
+margin-left:-250px;
+margin-top:-150px;
+transition:1s;
+
+justify-content:center;
+align-items:center;
+
+
+
+display:block;
+}
+
+#warn {
+display:none;
+transition:1s;
+}
+
+
+.innerWarn {
+width:60%;
+height:auto;
+font-size: 18px;
+text-align:center;
+font-weight:500;
+margin:0;
+white-space:pre-wrap;
+
+}
+
+.warnOps {
+width:100%;
+height:40%;
+
+display:flex;
+justify-content:space-around;
+}
+
+.inWarnBox {
+width:100%;
+height:60%;
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+
+.warnBtn {
+width: 200px;
+height:60px;
+background-color:white;
+display:inline-block;
+border:1px solid black;
+border-radius: 25px;
+}
+
+
+.cnclBtn {
+background-color:   rgba(190,190,190.5);
+}
+
+
+.delBtn {
+background-color:  red ;
+font-weight:700;
+color: white;
+}
+
+
+.wbh {
+height: 100%;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+    </style>
+
+
+
+    <!--     Fonts     -->
+
+  
+
+
+
+</head>
+
+
+
+<body>
+
+	
+
+	
+
+	
+
+	
+<!-- 
+	<div class="HeaderOne">
+
+		<div class="pageTitle">
+
+			ChangingFloridaToday
+
+			</div>
+
+		
+
+		</div>
+ -->
+		
+	<div class="HeaderOne">
+	    <div class="pageTitle creating">
+Admin List
+
+</div>
+			</div>
+		
+		
+		<br/>
+				<br/>
+		
+		
+		 <div class='adminEditBox'> 
+		 	     
+		 	
+		 	 
+		 	
+		 	<span class="linkTitle"> <p>Username</p></span>
+		 	<span class="linkAddress"> <p>someaddress@mail.com</p>  </span>  
+		 	     
+		 	     <br/>
+		 	     
+		 	     
+		 	     
+		 	   <div   onclick='warnin()'  class="removeBtn">
+		 	    <div  >Remove</div>        
+		 	   </div>
+		 	   
+		 	 </div>
+		 	 
+		 			<br/>		 	 
+		 <div class='adminEditBox'> 
+		 	     
+		 	
+		 	 
+		 	
+		 	<span class="linkTitle"> <p>Username</p></span>
+		 	<span class="linkAddress"> <p>someaddress@mail.com</p>  </span>  
+		 	     
+		 	     <br/>
+		 	     
+		 	     
+		 	     
+		 	   <div class="removeBtn">
+		 	    <div onclick='warnin()' >Remove</div>        
+		 	   </div>
+		 	   
+		 	 </div>
+		 	 
+		 	 
+		 	 
+		 	 <div class="warnBox" id="warn">  
+		 	  <div  class="inWarnBox">   <div class="innerWarn">This action will permanently delete account: $username.
+Are you sure?</div><!-- innerWarn --></div>
+		 	     
+		 	     <div class="warnOps">
+		 	         
+		 	         <div class="warnBtn cnclBtn" onclick="closeWarn()">
+		 	           <div class="wbh">  <div>Cancel</div></div>
+		 	             </div>
+		 	             
+		 	             
+		 	         <div    onclick="delAdmin($id)"  class="warnBtn delBtn">
+		 	           <div class="wbh">  <div>Delete</div></div>
+		 	             </div>
+		 	             
+		 	             
+		 	         
+		 	     </div><!-- warnOps -->
+		 	     
+		 	 </div><!-- warnBox -->
+		 	 
+		 	 
+		 	 
+		 	 
+		 	 
+		 			<br/>		 	 
+		
+<script>		
+		 
+		 w = document.getElementById('warn');
+		 
+		 
+		 function warnin()   
+		 {
+		 
+		 
+		 
+		 
+		 if (w.style.display!="block")
+		 {
+		 w.style.display="block";
+		 
+		 
+		 }
+		    }
+		    
+		  function closeWarn()
+		  {
+		  if(w.style.display!='none')
+		  {
+		  w.style.display='none';
+		  
+		  
+		  }
+		  }  
+		    
+		    
+		    
+		</script>
+		
+			<!-- STROKES FOR GALLERY -->
+	<script>
+function delAdmin(str) {
+var item = str;
+if (str =="") {
+document.getElementById(item).innerHTML="";
+return;
+} else {
+if 
+(window.XMLHttpRequest) {
+xmlhttp = new XMLHttpRequest();
+} else {
+xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.onreadystatechange = function()
+{
+if (this.readyState==4 && this.status==200) {
+document.getElementById(item).innerHTML= this.responseText;
+}
+}
+xmlhttp.open("GET","removeAdminAction.php?q=" +str, true);
+xmlhttp.send();
+}
+}
+</script>
+		
+
+</body>

@@ -46,7 +46,9 @@ if (!isset($_SESSION['username']))
     
 
 
-    
+.HeaderOne {
+position:relative;
+}    
 
    
 
@@ -57,7 +59,9 @@ position: absolute;
 top:0;
 }
 
-
+.cent {
+margin-left:10vw;
+}
 
     </style>
 
@@ -87,18 +91,18 @@ top:0;
 
 		<div class="pageTitle">
 
-			ChangingFlorida.org
+		<a href="index.html"></a>	ChangingFloridaToday</a>
 
-			</div>
-
-		
-
-		</div>
+			</div><!-- pageTitle -->
 
 		
-	<div class="HeaderOne">
-<h2> Welcome <?php echo $_SESSION['username']; ?>
-			</div>
+
+		</div><!-- HeaderOne -->
+
+		
+	<div class="HeaderOne ">
+<h2  class="cent"> Welcome <?php echo $_SESSION['username']; ?> </h2>
+			</div><!-- HeaderOne -->
 		
 		
 		
@@ -117,7 +121,7 @@ top:0;
 			  <a   class="aAddon" href="petition_single.html">
   <div class="linkDiv">
       
-  </div>
+  </div><!-- linkDiv -->
   </a>
 			
 			
@@ -128,7 +132,7 @@ top:0;
 			
 			<div>  3 </div>
 			    
-			   </div>
+			   </div><!-- vert -->
 			   </div><!-- adminSub -->
 			   
 			    
@@ -157,47 +161,9 @@ top:0;
 			    
 			    </div>
 			    
-			    </div>
+			    </div><!-- vert -->
 			    
 			    </div><!-- adminSub -->
-			    
-			    
-			    
-			    
-			   <div class="adminSub">
-			    
-			    <div class="borderTop"></div>
-			    
-  	      <a class="aAddon" href="createLinks.html">
-  <div class="linkDiv">
-      
-  </div>
-  </a>  	     
-  	    
-			
-			<div class="vert">
-  
-   
-  
-  
-  <div>
-   	Create New Links
-   	</div>
-   	<div>
-			    
-			    </div>
-   	
-   		  </div>
-   	
-   	
-   	
-   	
-   	</div><!-- adminSub -->
-   		
-			
-			
-			    
-			    
 			    
 			<!-- end one-->
 			
@@ -242,7 +208,7 @@ top:0;
    	
    	
    	
-   	</div>
+   	</div><!-- vert -->
    		
    		
    		
@@ -268,54 +234,18 @@ top:0;
   <div>
    	Create New Links
    	</div>
+   	
    	<div>
 			    
 			    </div>
    	
-   		  </div>
+   		  <div>
    	
    	
    	
    	
-   	</div><!-- adminSub -->
-   		
-			
-			
-			
-			<div class="adminSub">
-			    
-			    <div class="borderTop"></div>
-			    
-  	      <a class="aAddon" href="createLinks.html">
-  <div class="linkDiv">
-      
-  </div>
-  </a>  	     
-  	    
-			
-			<div class="vert">
-  
-   
-  
-  
-  <div>
-   	Create New Links
    	</div>
-   	<div>
-			    
-			    </div>
-   	
-   		  </div>
-   	
-   	
-   	
-   	
-   	</div><!-- adminSub -->
    		
-			
-			
-			
-			
 			
 			
 			<!-- end two -->
