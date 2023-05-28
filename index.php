@@ -98,336 +98,136 @@
 
 	
 
-	
-
-	
-
-	
-
 	<div class="HeaderOne ">
 
 		<div class="pageTitle">
 			
-
-		<div class="mainTitle"	>ChangingFlorida.org</div>
-	<a href="loginAdmin.html">	<div class="loginClick"> Login </div> </a>
+		   <div class="mainTitle"	>ChangingFloridaToday
+		   </div>
+      
 		
+  	</div>
 
-			</div>
+	</div><!-- headerOne -->
 
-		
+	<div class="coverImg">
+
+		   <div class="headerHolder">
+
+	   		</div>
 
 		</div>
 
-		
-
-		
-
-	
-
-<div class="coverImg">
-
-	
-
-	   <div class="headerHolder">
-
-	   	
-
-<!-- 	<h2 class="petitionHeader">
-
-		Your Signature Matters
-
-		</h2> -->
-
-		
-
-		
-
-		<h3 div class="petitionValues">
-
-		
-
-			</h>
-
-	</div>
-
-	
-
-	</div>
-
-
-
-		
-
-		<div class="HeaderOne Ops">
+	<div class="HeaderOne Ops">
 
 			<h2 class="discoverBar">
 
 				Petitions needing your Signature
 
-				</div>
+	</div>
 
 			
 
-			</div>
+			
 
 
 
  
 
 
+<?php 
+include('db_connect.php');
 
+$sql = "SELECT title, description, filepdf FROM Petitions";
+if($query = mysqli_query($db,$sql))
+    {
+    while($row = mysqli_fetch_assoc($query))
+    {
+
+$title = $row['title'];
+$detail = $row['description'];
+
+$pdf = $row['filepdf'];
+
+
+echo "
+
+<div class='containerOne'>
+
+	     <div class='picOne'>
+
+         <img src='$image'></img>
+
+     </div> <!-- end of picOne -->
+
+      <div class='containerTwo'>
+
+         	  <div class='infoContainer'>
+
+      	  	      	   <div class='titleBarBox inText' >
+
+      	             <h3 class='titleBar'>
+      	             	$title
+      	             	  </h3>  	
+      	           	
+      	           	</div><!-- close titleBarBox -->
+
+      	 
+      	   <div class='summaryBox inText'	>
+
+      	     <div class='summary'>   	   
+
+      	     $detail	      	     
+
+      	     	</div>
+
+      	   </div>  	<!-- summaryBox -->          	 
+
+      	 </div> <!-- infoContainer -->      	
+
+      	</div> <!-- close of containerTwo-->
+
+</div> <!-- close containerOne -->
+
+
+<a href='$pdf' download='$title'>
+  <div class='signButton'>
+
+   Download PDF of Petition
+
+	</div>
+</a>
+
+
+
+
+<!-- close of petition block -->
+
+
+
+
+
+
+
+
+
+
+
+";
+}
+}
+?>
 
 
 		
 
 
 
-  <!-- petition block -->
 
 
 
 
 
-<a href="petition_single.html"> <!-- link to next page - html only-->
-
-
-
-<div class="containerOne">
-
-	
-
-	
-
-	
-
-	
-
-     <div class="picOne">
-
-         <img src="picone.jpg"></img>
-
-     </div> <!-- end of picOne -->
-
-
-
-
-
-
-
-      <div class="containerTwo">
-
-      	  
-
-      	  
-
-      	  
-
-      	  
-
-      	  <div class="infoContainer" >
-
-      	  	
-
-      	   <div class="titleBarBox inText"  >
-
-      	     <h3 class="titleBar">
-
-      	     	The Free the People Petition
-
-      	     	</div><!-- close titleBar -->
-
-      	   </h3>  	
-
-      	     	
-
-      	     	
-
-      	   <div class="summaryBox inText"	>
-
-      	     <div class="summary">   	   
-
-      	     This proposal is to free the people...  	
-
-      	     we deserve freedom
-
-      	     	</div>
-
-      	   </div>  	    
-
-      	 
-
-      	 </div> <!-- infoContainer -->  
-
-      	   
-
-      	   <div class="progressBarBox"	    > 	
-
-      	     	<div class="progressBar">
-                 <div class="progress"></div>
-
-
-
-      	     		</div>
-
-      	   </div> 		
-
-      	   
-
-      	   <div class="progressAmountBox">
-
-      	     		<div class="progressAmount">
-
-      	     			500,287 of 800,000
-
-      	     			</div>
-
-      	  </div>
-
-      	
-
-      	</div> <!-- close of containerTwo-->
-
-
-
-
-
-
-
-</div> <!-- close containerOne -->
-
-<div class="signButton">
-
-Read and Sign
-
-	</div>
-
-</a>
-
-
-
-<!-- close of petition block -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- petition block -->
-
-
-
-
-
-<a href="petition_single.html"> <!-- link to next page - html only-->
-
-
-
-<div class="containerOne">
-
-	
-
-     <div class="picOne">
-
-         <img src="picone.jpg"></img>
-
-     </div> <!-- end of picOne -->
-
-
-
-      <div class="containerTwo">
-
-      	  
-
-      	  
-
-      	  <div class="infoContainer" >
-
-      	  	
-
-      	   <div class="titleBarBox"  >
-
-      	     <h3 class="titleBar">
-
-      	     	The Free the People Petition
-
-      	     	</div><!-- close titleBar -->
-
-      	   </h3>  	
-
-      	     	
-
-      	     	
-
-      	   <div class="summaryBox"	>
-
-      	     <div class="summary">   	   
-
-      	     This proposal is to free the people...  	
-
-      	     we deserve freedom
-
-      	     	</div>
-
-      	   </div>  	    
-
-      	 
-
-      	 </div> <!-- infoContainer -->  
-
-      	   
-
-      	   <div class="progressBarBox"	    > 	
-
-      	     	<div class="progressBar">
-
-      	     		</div>
-
-      	   </div> 		
-
-      	   
-
-      	   <div class="progressAmountBox">
-
-      	     		<div class="progressAmount">
-
-      	     			500,287 of 800,000
-
-      	     			</div>
-
-      	  </div>
-
-      	
-
-      	</div> <!-- close of containerTwo-->
-
-
-
-
-
-
-
-</div> <!-- close containerOne -->
-
-<div class="signButton">
-Read and	Sign
-	</div>
-
-
-
-</a>
-
-
-
-<!-- close of petition block -->
 
 
 
