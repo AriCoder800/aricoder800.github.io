@@ -61,63 +61,14 @@ if (!isset($_SESSION['username']))
   <link rel="stylesheet"  type="text/css" href="style.css">
 
   
-      <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="StyleMobile.css"> 
-  
-   <link rel="stylesheet" type="text/css" media="screen and (min-width:900px)" href="StyleWide.css">  
-
+      
     
 
     <style type="text/css">
 
     
 
-    .adminEditBox {
-    width: 90vw;
-    padding:10px;
-    border-top: 1px solid rgba(220,220,220,.5);
-    border-bottom: 1px solid rgba(20,20,20,.5);
-    margin: auto;
-    color:white;
-    font-size:18px;
-    background-color: rgba(20,20,20,.7);
-    border-radius: 25px;
-    transition: .5s;
-    position:relative;
-    }
-
     
-.linkTitle {
-font-size:20px;
-font-weight:700;
-margin-bottom:-2px;
-
-}
-  
-  
-  .linkAddress {
-  font-size:15px;
-  color:rgba(220,220,220,.9);
-  }
-
-.removeBtn {
-height:60px;
-width:100%;
-display:flex;
-    justify-content:center;
-    align-items:center;
-background-color:red;
-border-radius:20px;
-
-transition:.5s;
-}
-
-
-.removeBtn:hover {
-background-color:rgba(220,10,10,.7);
-}
-
-
-
     </style>
 
 
@@ -199,7 +150,65 @@ Admin List
 		 	   
 		 	 </div>
 		 	 
-		 			<br/>		 	 ";
+		 			<br/>		
+		 			
+		 			<div class='warnBox' id='$id'>  
+		 	  <div  class='inWarnBox'>   <div class='innerWarn'>This action will permanently delete account: $username.
+Are you sure?</div><!-- innerWarn --></div>
+		 	     
+		 	     <div class='warnOps'>
+		 	         
+		 	         <div class='warnBtn cnclBtn' onclick='closeWarn()'>
+		 	           <div class='wbh'>  <div>Cancel</div></div>
+		 	             </div>
+		 	             
+		 	             
+		 	         <div    onclick='delAdmin($id)'  class='warnBtn delBtn'>
+		 	           <div class='wbh'>  <div>Delete</div></div>
+		 	             </div>
+		 	             
+		 	             
+		 	         
+		 	     </div><!-- warnOps -->
+		 	     
+		 	 </div><!-- warnBox -->
+		 	 		 			
+		 		<script>		
+		 
+		 w = document.getElementById($id);
+		 
+		 
+		 function warnin()   
+		 {
+		 
+		 
+		 
+		 
+		 if (w.style.display!='block')
+		 {
+		 w.style.display='block';
+		 
+		 
+		 }
+		    }
+		    
+		  function closeWarn()
+		  {
+		  if(w.style.display!='none')
+		  {
+		  w.style.display='none';
+		  
+		  
+		  }
+		  }  
+		    
+		    
+		    
+		</script>
+		
+		 			
+		 				 
+		 			 	 ";
 		 			
 		 			}
 		 			}
@@ -208,21 +217,37 @@ Admin List
 				
 				?>
 				
-				
-		<script>
-		  
-		  
-		 function warning(ac)   
-		 {
-		 wind = 
-		 document.getElementById('warn');
-		 acct = 
-		 document.getElementById(ac);
-		 
-		 }
-		    
-		    
-		    </script>		
+				<!-- MAKE WARNING WINDOW TO APPEAR -->
+		
+			<!-- DELETE ACCOUNT AJAX -->
+			
+			<script>
+function delAdmin(str) {
+var item = str;
+if (str =="") {
+document.getElementById(item).innerHTML="";
+return;
+} else {
+if 
+(window.XMLHttpRequest) {
+xmlhttp = new XMLHttpRequest();
+} else {
+xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.onreadystatechange = function()
+{
+if (this.readyState==4 && this.status==200) {
+document.getElementById(item).innerHTML= this.responseText;
+}
+}
+xmlhttp.open("GET","removeAdminAction.php?q=" +str, true);
+xmlhttp.send();
+}
+}
+</script>
+		
+			
+			
 			
 
 </body>
