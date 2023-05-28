@@ -1,63 +1,11 @@
-<!DOCTYPE html> 
 
-<html lang="en"> 
-
-<head>
-	
-	 <meta charset="UTF-8">
-	 	
-	 	 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-	 	 
-	 	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>How to create signature pad in html</title>
-	 	 
-	 	  <link rel="stylesheet" href="style.css">
-	
-	 </head> 
-
-<body>
-	
-	
-	
-	<div class="flex-row"> 
-	
-	<div class="wrapper"> 
-	
-	
-	<canvas id="signature-pad" width="400" height="200">
-		
-		
-		
-	</canvas> 
-	
-	</div> 
-	
-	<div class="clear-btn"> 
-	
-	<button id="clear">
-		
-		<span> Clear 
-		
-		</span>
-		
-		</button> 
-		
-		</div> 
-		
-		</div>
-	
-	
-	
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.5/signature_pad.min.js"
+ src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.5/signature_pad.min.js"
 	
 	 integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ=="
 	
 	 crossorigin="anonymous" 
 	 referrerpolicy="no-referrer">
 	 
-	 </script>
-	 
-	  <script>
 	  	
 	  	 var canvas = document.getElementById("signature-pad");
 	  	 
@@ -78,12 +26,7 @@
 	  	  
 	  	  document.getElementById("clear").addEventListener('click', function(){ signaturePad.clear(); }) 
 	  	  
-	  	  </script>
+	  	 
 	
 	
-	 </body> 
-
-
-
-
-</html> 
+	

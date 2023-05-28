@@ -1,0 +1,34 @@
+<!-- code to upload an image -->
+
+
+ include('fixorientation.php');
+ include('resize.php');
+
+
+
+$cover_path =  mysqli_real_escape_string($db, 'Image/'.$title . $_FILES['cover']['name']);
+
+$a_type = $_FILES['cover']['type'];
+
+
+
+if (preg_match("!image!",$_FILES['cover']['type'])) {
+        
+move_uploaded_file($_FILES['cover']['tmp_name'], $cover_path);
+
+$file = $cover_path;
+
+
+
+ if ($a_type == 'image/jpeg')
+{
+newone($file);
+resize_image($file, "360");    
+} 
+else if ($a_type == 'image/png')
+{
+resize_image($file, "360");    
+}
+
+ }
+ 

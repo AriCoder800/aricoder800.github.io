@@ -1,0 +1,251 @@
+
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+<title>Exibit Options</title> 
+<link rel="stylesheet" type="text/css" href="style.css"> 
+
+<link rel="stylesheet" type="text/css" href="studiomenus.css"> 
+
+<link rel="stylesheet" type="text/css" href="0acubefull.css"> 
+
+<link rel="stylesheet" type="text/css" href="0acubemedium.css"> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- theme color for browser address bar -->
+  	<meta name="theme-color" content="<?php echo $browsercolor;?>" />
+<!-- Windows Phone --> 
+<meta name="msapplication-navbutton-color" content="<?php echo $browsercolor;?>"> 
+<!-- iOS Safari --> 
+<meta name="apple-mobile-web-app-capable" content="yes"> 
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  	
+
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
+	
+	<link href="https://fonts.googleapis.com/css?family=Audiowide|Gaegu|Montserrat|Permanent+Marker" rel="stylesheet">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">  	
+
+
+<style>
+  	
+  		
+    	<?php
+  	 	include('menubars.php');
+  	 	?>
+  	 	
+  	</style>
+
+</head> 
+<body> 
+
+
+  	  <div  class="studiohead menufeel">
+  	  <span  class="icon2" onclick="javascript:history.back()"><i class="fas fa-arrow-left"></i></span><span id="profileName">Exhibit Your Art <?php echo $_SESSION['username'];?></span>
+  </div>
+  
+  <br />
+<br />
+
+<form class="formadd" method="post" action="Exhibit.php"  enctype="multipart/form-data"> 
+
+	<div class="formblock"> 	 
+	 <div  class="prevblockadd" > 
+	
+	
+	
+	
+	 
+	 
+	 	  <div class="prevadd" > 
+ <input type="file" style="display:none"  id="file" name="picture"  accept="image/*" onchange="previewFile()">
+ 
+ <img id="preview" src="galleryadd.png" align="center" onclick="document.getElementById('file').click();"  alt="Image preview..." >
+ </div>
+
+ 
+<div class="detailblock"> 
+<input type="text" placeholder="Give this art a title.." name="title"  class="worktitle" autocomplete="off">
+
+<textarea  placeholder="Tell us something about this work..." class="caption" name="about"  autocomplete="off"></textarea>
+</div>
+
+
+ 
+ </div>
+ </div>
+ <hr/>
+ <br />
+<p> Choose Gallery</p>
+ <br />
+ 
+ <div class="galleryaddselect">
+ 
+	<div  class="galleryadddiv"   onclick="check('g1'); highlight(this)" id="gn1">
+	 <input type="radio"  id="g1" name="gallery" value="1"><span > 1: <?php echo $gal1;?>  </span>
+	</div>
+	<div  class="galleryadddiv" onclick="check('g2'); highlight(this)"  id="gn2">
+	 <input type="radio"  id="g2" name="gallery" value="2"><span > 2:  <?php echo $gal2;?>  </span>
+	</div>
+ <div  class="galleryadddiv" onclick="check('g3'); highlight(this)" id="gn3">
+	 <input type="radio"  id="g3" name="gallery" value="3"><span >  3:  <?php echo $gal3;?>  </span>
+	</div>
+<div  class="galleryadddiv" onclick="check('g4'); highlight(this)" id="gn4">
+	 <input type="radio"  id="g4" name="gallery" value="4"><span >  4: <?php echo $gal4;?></span>
+	</div>
+
+     
+ 
+  </div>
+ </div>
+  <br /> 
+  <hr/>
+	   <br />
+
+  
+	  
+	   
+	     <div  class="buttoncase">
+	  <div class="input-group" id="submit" > 	
+	   <button type="submit"  id="addex" class="addbtn menufeel" name="addsubmit" onclick="loader(); loadertime()"  >Exhibit 》</button> 	
+	   </div>
+	    </div>
+	   
+	    
+	  
+     <div class="sendload" >
+     <img src="<?php echo $loaderfeel;?>"  id="the2">
+     
+	</div>	 
+	  <br/>
+	  <br/>
+	
+	 
+	
+	<button id="submitfeel" type="submit" name="colorchange" style="display:none;"></button>
+	
+	 
+	  
+	 
+	  	</form>
+	
+	  	<br />
+	  	<br />
+	  	<br />
+	  	
+	  	<footer>
+ <p>production of: QuetzalArtz x R&R <p>
+</footer>
+		 	<br />
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	
+
+
+	  	
+	  	<script>
+	  	
+	  	button = 
+document.getElementById("addex");
+
+button.disabled= true;
+button.style="background-color:<?php echo $fadecolor;?>;color:rgba(0,0,0,.4);";
+	  	
+	  	
+	  function check(x)
+	 {
+	 ar = 
+	 document.getElementById(x);
+	 
+	 ar.checked=true;
+	 
+	 button.disabled= false;
+button.style="background-color:<?php echo $nowfeel;?>;color:white;";
+	 }	
+	  	
+	  	
+	  	function highlight(z)
+	{
+	c = 	document.getElementById("g12");
+	d=
+	document.getElementsByClassName("galleryadddiv");
+	for (i = 0; i < d.length ; i++)
+	{
+	d[i].style='background-color:<?php echo $fadeaddcolor;?>';
+	z.style='background-color:<?php echo $nowfeel;?>';
+	}	
+	}
+
+
+
+
+
+
+
+
+	  		
+/*	previewing picture */
+	
+	
+	
+	function previewFile()
+ { 
+  
+ var preview = document.getElementById('preview'); 
+ var file = document.querySelector('input[type=file]').files[0]; 
+ preview.style="border-color:white";
+ var reader = new FileReader(); reader.addEventListener("load", function () { 
+ preview.src = reader.result;
+  }, false); 
+ if (file)
+  {
+   reader.readAsDataURL(file); 
+   }
+     
+   }
+
+ 
+  
+
+	   function loader() {
+  lo =  document.getElementsByClassName("sendload")[0];
+   z= document.getElementsByClassName("buttoncase")[0];
+ 
+ if (z.style.display!="none")
+ {
+z.style.display="none";
+  lo.style.display="flex";
+  }
+  else
+   {
+z.style.display="flex";
+  lo.style.display="none";
+  }  
+	}
+
+// sets a timeout for loader  
+function  loadertime()
+{
+setTimeout(loader, 60000);
+  }
+ 
+document.getElementById("preview").click(); 
+
+ 
+ document.getElementById('gn<?php echo $galnum;?>').click();
+ 
+  
+	  	</script>
+	  	 </body>
+	  	 </html>

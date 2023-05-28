@@ -1,0 +1,167 @@
+<?php include('serverReg.php'); 
+?> 
+
+ <!DOCTYPE html>
+ <html>
+
+  <head> 
+  
+  <title>Login</title> 
+  
+  
+ 
+
+<!-- theme color for browser address bar -->
+  	<meta name="theme-color" content="#000000" />
+<!-- Windows Phone --> 
+<meta name="msapplication-navbutton-color" content="#000000"> 
+<!-- iOS Safari --> 
+<meta name="apple-mobile-web-app-capable" content="yes"> 
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  	
+
+
+
+
+  
+  <link rel="stylesheet" type="text/css" href="style.css"> 
+  
+  
+  	  
+  	 
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
+	
+	<link href="https://fonts.googleapis.com/css?family=Audiowide|Gaegu|Montserrat|Permanent+Marker" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  
+  <style>
+  
+  
+  .loadMine {
+  	height:100px;
+  	width:100px;
+  	
+  	border: 16px solid gray;
+  	border-radius:50%;
+  	border-top: 16px solid rgba(10,20,200,.9);
+  	animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+  	
+  	0% {transform: rotate(0deg); }
+  	100% {transform:rotate(360deg); }
+  }
+  
+  .passcase {
+  height: 60px;
+  
+  }
+  
+  .see {
+  position: relative;
+
+  bottom: 70%;
+  width: 20px;
+  left: 85%;
+  padding:10px;
+  display: block;
+  }
+  
+  
+  
+  
+  h1 {
+  	font-size:14px;
+  	 overflow: hidden; 
+  	 text-align: center; 
+  	 padding: 10px;
+  	 } 
+
+
+.uploadBtn {
+height: 100px;
+width: 300px;
+background-color:orchid;
+border-radius:50px;
+color: white;
+}
+  
+.fileName {
+height:100px;
+width:300px;
+font-size:20px;
+font-weight:700;
+text-align:center;
+}  
+  
+input {
+
+text-align:center;
+}  
+  input::file-selector-button {
+  background-color:red;
+  display: none;
+  border:1px solid white;
+  border-radius:50px;
+  color: white;
+  }
+  </style>
+  
+  
+  
+  </head> 
+  <body> 
+  
+  
+  
+<br />
+  
+  
+
+ 
+
+   
+  
+  
+  <form class="form"  method="post" action="login.php" > 	<?php include('errors.php'); ?> 	
+  
+  <div class="uploadBtn" onClick="myFile()">Upload PDF</div>
+  <br/>
+  <input class="fileName" type="file" id="myFile" name="pdfFile">
+  <br/>
+  <input type="submit">
+  
+ 
+  
+ 
+  
+
+ 
+  
+    
+  
+   
+  
+ 
+  
+  
+  <script>
+  
+  function myFile() 
+  {
+  document.getElementById('myFile').click();
+  
+  
+  
+  
+  }
+  </script>
+  
+  
+  </body> 
+  </html>
