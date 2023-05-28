@@ -51,6 +51,7 @@ Id INT(10) UNSIGNED AUTO_INCREMENT,
 Title VARCHAR(100) NOT NULL,
 Description VARCHAR(6000) NOT NULL,
 Date DATETIME NOT NULL,
+Filepdf VARCHAR(200) NOT NULL,
 Totalneeded INT(16) NOT NULL,
 Signatures INT(16) NOT NULL,
 Covername VARCHAR(100) NOT NULL,
@@ -76,6 +77,22 @@ if (mysqli_query($db, $sql))
 {
 echo "<br />Signatures table created";
 }
+
+
+// Pdf table
+
+$sql="CREATE TABLE IF NOT EXISTS Pdf(
+Id INT(10) UNSIGNED AUTO_INCREMENT,
+Name VARCHAR(200) NOT NULL,
+Petitionid INT(16) NOT NULL,
+Datesigned DATETIME NOT NULL,
+PRIMARY KEY(Id))";
+if (mysqli_query($db, $sql))
+{
+echo "<br />Pdf table created";
+}
+
+
 
 
 
