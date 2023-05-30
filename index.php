@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -27,25 +23,6 @@
 <meta property="og:title" content="Lets chang Floriad one signature at a time" />
 
 <meta property="fb:app_id" content="966242223397117">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-	
-
 	
 
     <meta charset="utf-8"/>
@@ -74,6 +51,43 @@
     	
     	
     	
+   .linkBtn {
+   height:50px;
+   width:50px;
+   padding:10px;
+   background-color:orange;
+   border-radius:50%;
+   position: fixed;
+   bottom:  30px;
+   right: 30px;
+   border:1px solid white;
+   transition:1s ease-in-out;
+   animation:border 2s linear infinite;
+   } 	
+   
+   .linkBtn img {
+   height:100%;
+   width:100%;
+   object-fit:cover;
+   }
+    	
+    	
+
+    	
+    	
+    	
+    	@keyframes border {
+    	0% {transform:scale(1);
+         	opacity:1;}
+    	
+    	50% {transform:scale(1.1);
+         	opacity:.7;}
+    	
+    	100% {transform:scale(1);
+    	     opacity:1;
+         	}
+    	
+    	}
     	
     	
     	</style>
@@ -96,19 +110,10 @@
 
 <body>
 
-	
+	<?php 
+	include('Header.php');
+?>
 
-	<div class="HeaderOne ">
-
-		<div class="pageTitle">
-			
-		   <div class="mainTitle"	>ChangingFloridaToday
-		   </div>
-      
-		
-  	</div>
-
-	</div><!-- headerOne -->
 
 	<div class="coverImg">
 
@@ -127,9 +132,12 @@
 	</div>
 
 			
-
-			
-
+<a href="links.php">
+		<div class="linkBtn">
+		    
+		    <img src="fl.png" alt="">
+		</div>	
+</a>
 
 
  
@@ -138,7 +146,7 @@
 <?php 
 include('db_connect.php');
 
-$sql = "SELECT title, description, filepdf FROM Petitions";
+$sql = "SELECT id, title, description, filepdf, covername FROM Petitions";
 if($query = mysqli_query($db,$sql))
     {
     while($row = mysqli_fetch_assoc($query))
@@ -146,8 +154,17 @@ if($query = mysqli_query($db,$sql))
 
 $title = $row['title'];
 $detail = $row['description'];
-
+$image = $row['covername'];
 $pdf = $row['filepdf'];
+$id =$row['id'];
+
+$string = $detail; 
+
+// Starts at the beginning of the string and ends after 100 characters 
+
+
+
+
 
 
 echo "
@@ -167,7 +184,7 @@ echo "
       	  	      	   <div class='titleBarBox inText' >
 
       	             <h3 class='titleBar'>
-      	             	$title
+      	             	$title $id
       	             	  </h3>  	
       	           	
       	           	</div><!-- close titleBarBox -->
@@ -175,9 +192,14 @@ echo "
       	 
       	   <div class='summaryBox inText'	>
 
-      	     <div class='summary'>   	   
+      	     <div class='summary'>   	"   ;
+      	     
+      	      echo substr($string, 0, 100).'... <a style="color:red;" href="petition.php?id='.$id.'">Read More</a>'; 
 
-      	     $detail	      	     
+
+
+
+      	  echo "     	     
 
       	     	</div>
 
@@ -191,7 +213,7 @@ echo "
 
 
 <a href='$pdf' download='$title'>
-  <div class='signButton'>
+  <div class='signButton ind'>
 
    Download PDF of Petition
 
@@ -244,10 +266,9 @@ echo "
 
 <br/>
 <br/>
-<br/><p> Terms</p>
-
-
-
-
+<br/>
+<?php 
+include('footer.php');
+?>
 
 </body>

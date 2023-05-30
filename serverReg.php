@@ -232,35 +232,19 @@ header('location:admins.php');
  	$results = mysqli_query($db, $query); 
  $results2 = mysqli_query($db, $query2); 
  
-  $query3= "SELECT id, username, level FROM Admins WHERE  email ='$email' OR username = '$username'";
+  $query3= "SELECT id, username, level, access FROM Admins WHERE  email ='$email' OR username = '$username'";
  $results3 = mysqli_query($db, $query3); 
  
  
  $query4= "SELECT entry FROM Access"; /* this is to get a matching code for higher clearance */
   $results4 = mysqli_query($db, $query4);
-
-
-  
- $queryUp = "UPDATE Access SET entry = entry +1 WHERE id = 1";
-if ( mysqli_query($db, $queryUp))
+if($accez = mysqli_fetch_assoc($results4))
 {
-    
-    echo 'yelp';
+$accessCode = $accez['entry'];
 }
 
- $sqlUp = "UPDATE Admins SET access = access +1 WHERE level = 1";
-if ( mysqli_query($db, $sqlUp))
-{
-    
-    echo 'yelp';
-}
-
-
   
-  if ($access = mysqli_fetch_assoc($results4))
-  {
-  $accessCode = $access['entry'];
-  }
+
   
  
  if ($userz = mysqli_fetch_assoc($results3))
@@ -268,6 +252,7 @@ if ( mysqli_query($db, $sqlUp))
  	$user2 = $userz['username'];
  	$id2 = $userz['id'];
  	$level = $userz['level'];
+ 	$access = $userz['access'];
  	}
  		if (mysqli_num_rows($results) == 1) 
  		{	echo"</br> Only one ";
@@ -275,6 +260,7 @@ $_SESSION['user'] = mysqli_fetch_assoc($results);
 $_SESSION['username'] = $username; 	
 $_SESSION['id'] = $id2;
 $_SESSION['level'] = $level;
+$_SESSION['access'] = $access;
 $_SESSION['pass'] = $accessCode;
 $_SESSION['success'] = "You are now logged in";
 header('location: admins.php'); 	
@@ -286,6 +272,7 @@ $_SESSION['username'] = $user2;
 $_SESSION['id'] = $id2;
 $_SESSION['level'] = $level;
 $_SESSION['pass'] = $accessCode;
+$_SESSION['access'] = $access;
 $_SESSION['success'] = "You are now logged in";
 header('location: admins.php'); 	
   }

@@ -1,5 +1,5 @@
 <?php session_start(); 
-if (!isset($_SESSION['username']))
+if (!isset($_SESSION['username']) )
  { 	
  $_SESSION['msg'] = "You must log in first"; 	header('location: login.php'); 
  }
@@ -7,32 +7,22 @@ if (!isset($_SESSION['username']))
   { 	
   session_destroy(); 	unset($_SESSION['username']); 	header("location: login.php"); 
   } 
+  if($_SESSION['pass'] != $_SESSION['access'])
+  {
+   $_SESSION['msg'] = "You must log in first"; 	header('location: login.php'); 
+  }
+  
   
   
    include('db_connect.php');  
   
-  $sqlp ="SELECT entry FROM Access WHERE id =1";
-    if ($queryp = mysqli_query($db,$sqlp))
-    {
-    while ($rowp = mysqli_fetch_assoc($queryp))
-    {
-    $comp = $rowp['entry'];
-    }
-  }
-  
+
+  $code = $_SESSION['access'];
   $pass = $_SESSION['pass'];
   $id = $_SESSION['id'];
   $level = $_SESSION['level'];
   
- if ($pass != $comp) 
- {
-  $_SESSION['msg'] = "not authorized"; 	header('location: admins.php'); 
 
- }
- else
- {
-  echo "go";
-  }
   ?>      
 
 

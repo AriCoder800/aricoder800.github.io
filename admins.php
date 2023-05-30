@@ -11,6 +11,7 @@ if (!isset($_SESSION['username']))
   $pass = $_SESSION['pass'];
   $id = $_SESSION['id'];
   $level = $_SESSION['level'];
+    $code = $_SESSION['access'];
   
  include('db_connect.php');
   ?>      
@@ -132,7 +133,7 @@ top:0;
 
 		
 	<div class="HeaderOne">
- <div class="pageUser">Welcome <?php echo $_SESSION['username'] ?></div>
+ <div class="pageUser">Welcome <?php echo $_SESSION['username'] . $pass . $code ?></div>
 			</div>
 
 
@@ -149,7 +150,7 @@ top:0;
 		
 		<!-- 2 -->
 			
-	<a href="createPetition.php"><div class="adOpBar">
+	<a href="newPetition.php"><div class="adOpBar">
 		  <p>Create New Petitions</p> 
 		    
 		</div></a>
@@ -170,21 +171,13 @@ top:0;
 		</div>
 		</a>
 		
-		<!-- 5 -->
+		<?php 
 		
-		<a href="adminEdit.php"><div class="adOpBar">
-		  <p>Edit Admin Access</p> 
-		    
-		</div></a>
-		
-		
-		<!-- 6 -->
-			
-	<a href="editCover.php">	<div class="adOpBar">
-		  <p>Edit Cover Images</p> 
-		    
-		</div></a>
-		
+		if($pass == $code)
+		{
+		include('edits.php');
+		}
+		?>
 		
 <br/>
 <br/>

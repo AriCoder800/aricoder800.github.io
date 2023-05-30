@@ -1,6 +1,4 @@
-<?php
-header('refresh:5');
-?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -92,19 +90,9 @@ margin-bottom:-2px;
 	
 
 	
-<!-- 
-	<div class="HeaderOne">
-
-		<div class="pageTitle">
-
-			ChangingFlorida.org
-
-			</div>
-
-		
-
-		</div>
- -->
+	<?php 
+	include('Header.php');
+?>
 		
 	<div class="HeaderOne">
 	    <div class="pageTitle creating">
@@ -179,6 +167,8 @@ echo"
 		?>
 
 		
-
+<?php 
+include('footer.php');
+?>
 
 </body>
