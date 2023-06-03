@@ -90,14 +90,7 @@ if ($user['username'] == $username) { array_push($errors, "Username - $username 
     
  
  }
-/*to update accesscode*/ 
- 
- $queryUp = "UPDATE Access SET entry = 'codewhite' WHERE id = 1";
-if ( mysqli_query($db, $queryUp))
-{
-    
-    echo 'yelp';
-}
+
 
 
  
@@ -176,24 +169,40 @@ echo'<br/>database updated';
 
  }
  
-$sql = " SELECT id FROM Admins WHERE email = '$email'";
+$sql = " SELECT id, level, access FROM Admins WHERE email = '$email'";
 if ($queri = mysqli_query($db,$sql))
 {
 $getid = mysqli_fetch_assoc($queri);
 }
 $id2 = $getid['id'];
+
+$access =  $getid['access'];
+} 
+ 
+ 
+ $query4= "SELECT entry FROM Access"; /* this is to get a matching code for higher clearance */
+  $results4 = mysqli_query($db, $query4);
+if($accez = mysqli_fetch_assoc($results4))
+{
+$accessCode = $accez['entry'];
+}
+
+  
+
+ 
  
  
 $_SESSION['username'] = $username; 
    $_SESSION['id'] = $id2; 	
    $_SESSION['level'] = $level; /* to provide access to certain admin functions */
-	
+$_SESSION['pass'] = $accessCode;
+$_SESSION['access'] = $access;
 header('location:admins.php');
 } 
 
 
 
-}
+
 
 
 
