@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();ob_start();
 if (!isset($_SESSION['username']) )
  { 	
  $_SESSION['msg'] = "You must log in first"; 	header('location: login.php'); 
@@ -56,9 +56,14 @@ if (!isset($_SESSION['username']) )
 
     <style type="text/css">
 
+    .adminEditBox {
+    z-index:1;
+    }
     
+    .warnBox {
+    z-index:300;
+    }
 
-    
     </style>
 
 
@@ -81,25 +86,13 @@ if (!isset($_SESSION['username']) )
 
 	
 
-	
-<!-- 
-	<div class="HeaderOne">
 
-		<div class="pageTitle">
 
-			ChangingFlorida.org
-
-			</div>
-
-		
-
-		</div>
- -->
 		
 	<div class="HeaderOne">
 	    <div class="pageTitle creating">
 Admin List
-
+<a href="logout.php"><div>Logout</div></a>
 </div>
 			</div>
 		
@@ -107,6 +100,11 @@ Admin List
 		<br/>
 				<br/>
 				
+				
+				
+			
+				    
+			<div id="adminAjax">
 				<?php
 				
 				
@@ -117,85 +115,56 @@ Admin List
 				    
 				    while ($roww = mysqli_fetch_assoc($querya))
 				    {
-				 $id = $roww['id'];   
+				 $idp = $roww['id'];   
 				$usrnm = $roww['username'];
 				$eml = $roww['email'];
 				
+				$wn = 1;
+				$aj = 'ajaxBox';
 			echo "	
 				<div class='adminEditBox'> 
 		 	     
 		 	
 		 	 
 		 	
-		 	<span class='linkTitle'> <p>$usrnm</p></span>
-		 	<span class='linkAddress'> <p>$eml</p>  </span>  
+		 	<span class='linkTitle'> <p>$usrnm - $idp </p></span>
+		 	<span class='linkAddress'> <p>$eml - $id</p>  </span>  
 		 	     
 		 	     <br/>
 		 	     
 		 	     
 		 	     
-		 	   <div class='removeBtn'>
-		 	    <div onclick='warning();'  >Remove</div>        
-		 	   </div>
+		 	   <div class='removeBtn' onclick='verifyDel($wn$idp)' >
+		 	    <div   >Remove</div>        
+		 	   </div><!-- removeBtn -->
 		 	   
-		 	 </div>
+		 	 </div><!-- adminEditBox -->
 		 	 
 		 			<br/>		
 		 			
-		 			<div class='warnBox' id='$id'>  
-		 	  <div  class='inWarnBox'>   <div class='innerWarn'>This action will permanently delete account: $username.
-Are you sure?</div><!-- innerWarn --></div>
+		 			<div class='warnBox' id='$wn$idp'>  
+		 	  <div  class='inWarnBox'>   <div class='innerWarn'>This action will permanently delete account: $usrnm.
+Are you sure? $idp</div><!-- innerWarn --></div>
 		 	     
 		 	     <div class='warnOps'>
 		 	         
-		 	         <div class='warnBtn cnclBtn' onclick='closeWarn()'>
+		 	         <div class='warnBtn cnclBtn' onclick='closeVer($wn$idp)'>
 		 	           <div class='wbh'>  <div>Cancel</div></div>
 		 	             </div>
 		 	             
 		 	             
-		 	         <div    onclick='delAdmin($id)'  class='warnBtn delBtn'>
+		 	         <div      class='warnBtn delBtn'  onclick='delAdmin($idp)'>
 		 	           <div class='wbh'>  <div>Delete</div></div>
 		 	             </div>
 		 	             
-		 	             
+		 	     
 		 	         
 		 	     </div><!-- warnOps -->
 		 	     
 		 	 </div><!-- warnBox -->
 		 	 		 			
-		 		<script>		
-		 
-		 w = document.getElementById($id);
-		 
-		 
-		 function warnin()   
-		 {
-		 
-		 
-		 
-		 
-		 if (w.style.display!='block')
-		 {
-		 w.style.display='block';
-		 
-		 
-		 }
-		    }
-		    
-		  function closeWarn()
-		  {
-		  if(w.style.display!='none')
-		  {
-		  w.style.display='none';
-		  
-		  
-		  }
-		  }  
-		    
-		    
-		    
-		</script>
-		
+		 	 		 			
+		 	 		 			
 		 			
 		 				 
 		 			 	 ";
@@ -206,16 +175,66 @@ Are you sure?</div><!-- innerWarn --></div>
 				
 				
 				?>
-				
+			
+			</div>	  <!-- adminAjax -->  
+			
 				<!-- MAKE WARNING WINDOW TO APPEAR -->
 		
-			<!-- DELETE ACCOUNT AJAX -->
+		
+
+		
+		<?php 
+include('footer.php');
+?>
+		
+		
+			
+			
+	
+
+			
 			
 			<script>
+	// OPENS VERIFY DELETE AND CLOSES OPTIONS
+function verifyDel(ver)
+{
+
+
+v =
+document.getElementById(ver);
+
+v.style.display="block"
+
+}
+
+
+
+// CANCELS DELETE AND CLOSES WINDOW
+function closeVer(ver)
+{
+
+
+
+verwin =
+document.getElementById(ver);
+
+
+
+verwin.style.display="none";
+}
+
+
+	
+	
+</script>
+		
+
+
+
+  <script>
 function delAdmin(str) {
-var item = str;
 if (str =="") {
-document.getElementById(item).innerHTML="";
+document.getElementById("adminAjax").innerHTML="";
 return;
 } else {
 if 
@@ -227,17 +246,16 @@ xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 xmlhttp.onreadystatechange = function()
 {
 if (this.readyState==4 && this.status==200) {
-document.getElementById(item).innerHTML= this.responseText;
+document.getElementById("adminAjax").innerHTML= this.responseText;
 }
 }
 xmlhttp.open("GET","removeAdminAction.php?q=" +str, true);
 xmlhttp.send();
 }
 }
-</script>
-		
-			
-			
+</script>	 			
+
+
 			
 
 </body>
