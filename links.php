@@ -53,18 +53,24 @@
 
    
 .linkTitle {
-font-size:20px;
+font-size:22px;
 font-weight:700;
 margin-bottom:-2px;
 }
   
   
   .linkAddress {
-  font-size:15px;
+  font-size:16px;
   color:rgba(220,220,220,.9);
   }
 
-
+.linkBox img {
+height: 100%;
+position:  absolute;
+top:0;
+right:10%;
+opacity:.3;
+}
 
 
     </style>
@@ -116,7 +122,7 @@ include('db_connect.php');
 	
 	}
   	
-  	$sql = "SELECT title, link FROM Links";
+  	$sql = "SELECT title, link, description FROM Links";
   	 	 if ($queryl = mysqli_query($db,$sql))
   	 	 {
   	 	 
@@ -126,18 +132,36 @@ include('db_connect.php');
   	 	 {
   	 	 $title = $rowl['title'];
   	 	 $link = $rowl['link'];
-  	 	
+  	 	$des = $rowl['description'];
   	 	 
 echo"
  <div class='linkBox'> 
 		 	     
-		 	 <a href=$link>
+		 	     
+		 	 
+		 	     
+		 	<a href=$link>
 		 	 <div class='linkDiv'></div>
 		 	 </a>
-		 	 <h2>$title</h2>
-		 	 <p>$link</p>    
+		 	
+		 	<span class='linkTitle'> <p>$title</p></span>
+		 	<span class='linkAddress'> <p>$link</p>  </span>  
+		 	     
+		 	     <p>$des</p>   
+		 	     		 	     
+		 	 
+		 	 
+		 	   <img src='link.png'alt=''>  
+		 	 
 		 	     
 		 	 </div>
+		 	 
+		 	 
+		 	 
+		 	 
+		 	 
+		 	 
+		 	 
 		 	 
 		 			<br/>		 	 
 		 	 

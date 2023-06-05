@@ -138,7 +138,9 @@
   
   
   
-
+<?php 
+include('footer.php');
+?>
  
   
     

@@ -127,13 +127,14 @@ top:0;
 
 			</div>
 
-		
+		<a href="logout.php"><div>Logout</div></a>
+</div>
 
 		</div>
 
 		
 	<div class="HeaderOne">
- <div class="pageUser">Welcome <?php echo $_SESSION['username'] . $pass . $code ?></div>
+ <div class="pageUser">Welcome <?php echo $_SESSION['username'] ?></div>
 			</div>
 
 
@@ -142,7 +143,7 @@ top:0;
 
 <!-- 1 -->
 
-	<a href="petitions.php">	<div class="adOpBar">
+	<a href="petitionList.php">	<div class="adOpBar">
 		  <p>Active Petitions</p> 
 		    
 		</div>
@@ -173,6 +174,8 @@ top:0;
 		
 		<?php 
 		
+		
+		
 		if($pass == $code)
 		{
 		include('edits.php');
@@ -183,5 +186,8 @@ top:0;
 <br/>
 <br/>
 
+<?php 
+include('footer.php');
+?>
 		
 </body>

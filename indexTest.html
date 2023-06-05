@@ -8,53 +8,330 @@
     <meta name="viewport" content="width=device-width"/>
 
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100;300&family=Russo+One&display=swap" rel="stylesheet">
+
+
+
+
+    
+    
     <style type="text/css">
+
+body {
+background-color:rgba(20,20,20,1);
+color:white;
+margin:0;
+padding:0;
+}    
     
+    /*  GENERAL FOR ALL NON-IMAGE SECTIONS */
     
-    
-    body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-background-color: red;
+  .bgImg {
+ <!--  font-family: 'Russo One', sans-serif; -->
+  
+  background-color: rgba(20,20,20,.7);
+  height:  120vh;
+  width:100vw;
+  position: relative;   
+  font-family: 'Lexend Peta', sans-serif;
+  text-align:right;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+/*  background:linear-gradient(45deg,rgba(20,20,220,1), rgba(20,20,20,1)); */
+  background-size:cover;
+  background-repeat:no-repeat;
+  }
+
+
+/*  FIRST SECTION ONLY  */
+
+.bloc div {
+height:75px;
+padding: 0 10px;
 }
 
-.bg-image {
- width:auto;
-  height: 50vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.bloc {
+display:block;
+width:100%;
+font-size:75px;
+  font-weight:900;
+  font-family: 'Lexend Peta', sans-serif;
+  text-align:right;
+    
+}
+
+.img1 {
+background-color:rgba(20,20,20,.0); /* CREATES THE DARK TINT OVER IMAGE */
+height:110vh; /* BASE SPACE FOR IMAGE IN ::AFTER */
+text-align:right;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+border:1px solid blue;
+}
+
+
+/* CREATES IMAGE AND CURVES ITS OUTLINE */
+
+.img1::after {
+
+content: ''; /* HELPS BACKGROUND IMAGE APPEAR IN ::AFTER SECTION */
+ border-bottom-left-radius:100% 70%; 
+ position: absolute; 
+ top: 0%;
+  z-index: -1; 
+ width: 100%; 
+ background-image: url(dark3.jpg); 
+ height: 130vh;
+background-size:cover;
+background-repeat:no-repeat;
+}
+
+
+/*  FIRST SECTION CURVED BORDER */
+
+.borderOut {
+border-bottom:2px solid rgba(220,220,220,.7);
+position:absolute;
+height:140vh;
+top:0;
+border-bottom-left-radius:100% 80%;
+left:0;
+width:100vw;
+z-index:1;
+}
+
+
+
+/*  SECOND SECTION */
+
+.fontCenter {
+font-size: 30px;
+text-align:center;
+}
+
+.img2 {
+border:1px solid green;
+}
+
+
+
+
+
+/*   THIRD SECTION  */
+
+.bubble {
+  background-color: rgba(20,20,20,.7);
+  height:  150vh;
+  width:100vw;
+  position: relative;
+  font-size:30px;
+  font-weight:700;
+  text-align:center;
+  display:flex;
+  justify-content:center;
+  align-items:center; 
+  border:1px solid red;
+ 
 
 }
 
-.img1 { background-image: url("picone.jpg"); }
-.img2 { background-image: url("pictwo.jpg"); }
-.img3 { background-image: url("pixone.jpg"); }
-.img4 { background-image: url("pixthree.jpg"); }
-.img5 { background-image: url("sample.jpg"); }
-.img6 { background-image: url("picone.jpg"); }
+.bubble::after {
+content: '';
+ border-top-left-radius: 70% 20%; /* FIRST PARAMETER AFFECTS TOP RIGHT REACH  */
+ border-bottom-right-radius: 50% 50%;
+ position:absolute ; 
+ top: 0%;
+  z-index: -1; 
+ width: 100%; 
+ background-image: url(black2.jpg);   
+ background-size:cover;
+  background-repeat:no-repeat;
+ height: 150vh;
+ animation: slideShow 10s infinite ;
+}
 
-.bg-text {
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4); 
-  color: white;
-  font-weight: bold;
-  font-size: 80px;
-  border: 10px solid #f1f1f1;
-  position: fixed; 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 300px;
-  padding: 20px;
-  text-align: center;
-  	height:1000px;
+@keyframes slideShow {
+0%{ background-image:url('black2.jpg');}
+50%{ background-image:url('quill.jpg');}
+100% {background-image:url('black2.jpg');}
+
+
+}
+
+
+
+.borderTwo{
+border-top:2px solid rgba(220,220,220,.7);
+border-top-left-radius:70% 20%;
+position:absolute;
+height:165vh;
+width:100%;
+top:-30px;
+border-bottom:2px solid rgba(220,220,220,.7);
+border-bottom-right-radius:60% 70%;
+width:100vw;
+z-index:401;
+}
+
+
+
+section { 
+position: relative; 
+display: flex; 
+flex-direction: column; 
+align-items: center; 
+min-height: 400px; 
+padding-top: 100px; 
+
+} 
+
+
+
+/*  FOURTH SECTION  */
+
+
+.img4 {
+
+background-color: rgba(20,20,20,.7);
+}
+
+.img4::after {
+content: '';
+ border-top-left-radius: 60% 20%; 
+ border-bottom-right-radius:100% 30%; 
+ position: absolute; 
+ bottom: 0;
+  z-index: -1; 
+ width: 100%; 
+ 
+ height: 150vh;
+
+}
+
+
+
+
+
+/* FIFTH SECTION */
+
+
+.img5 {
+  background-color: rgba(20,20,20,.7);
+  height:  130vh;
+  width:100vw;
+  position: relative;
+  font-size:30px;
+  font-weight:700;
+  text-align:center;
+  display:flex;
+  justify-content:center;
+  align-items:center; 
+}
+
+.img5::after {
+content: '';
+ border-top-right-radius: 100% 20%; /* FIRST PARAMETER AFFECTS TOP RIGHT REACH  */
+ border-bottom-left-radius: 60% 30%;
+ position:absolute ; 
+ top: 0%;
+  z-index: -1; 
+ width: 100%; 
+ background-image: url(darkQ.jpg); 
+  background-size:cover;
+  background-repeat:no-repeat;
+ height: 150vh;
+}
+
+.bgBtn {
+
+padding:30px;
+border-radius:45px;
+background:rgba(20,20,20,1);
+font-size:30px;
+border:1px solid white;
+}
+
+.borderThree {
+border-top:2px solid rgba(220,220,220,.7);
+border-top-right-radius:90% 30%;
+position:absolute;
+height:165vh;
+width:100%;
+top:-30px;
+border-bottom:2px solid rgba(220,220,220,.7);
+border-bottom-left-radius:60% 50%;
+
+}
+
+
+.try {
+position: relative; 
+display: flex; 
+flex-direction: column; 
+align-items: center; 
+border-top-right-radius:100% 60%;
+min-height: 400px; 
+padding-top: 100px; 
+background: blue;
+margin-bottom: 100px;
+overflow:;
+}
+
+
+/* CURVE SECTION */
+
+.curve {
+ position: absolute; 
+ height: 250px;
+  width: 100%; 
+ bottom: 0; 
+ text-align: center;
   }
  
- 
- 
+ .curve::before {
+  content: ''; display:
+   block; 
+   position: absolute;
+    border-radius: 100% 50%;
+     width: 54%;
+     right:0;
+      height: 100%;
+      transform:translate(0, 64%);
+       background-color: rgba(20,20,20,1); 
+       }
+       
+       
+        .curve::after {
+        
+         content: ''; 
+         display: block;
+          position: absolute;
+           border-radius: 100% 50%; 
+           width: 55%; 
+           height: 100%; 
+           background-color: blue; 
+           transform: translate(-4%, 40%); 
+           z-index: -1; }
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 
     <!--     Fonts     -->
@@ -65,20 +342,91 @@ background-color: red;
 
 	<body>
 	
-	<div class="bg-image img1"></div>
+	<!-- FIRST SECTION (IMAGE) -->
 	
-<div class="bg-image img1"></div>
-<div class="bg-image img2"></div>
-<div class="bg-image img3"></div>
-<div class="bg-image img4"></div>
-<div class="bg-image img5"></div>
-<div class="bg-image img6"></div>
+	<section class="img1">
+	    <div class="bloc">
+	        <div class="inbloc">CHANGE</div>
+	         <div class="inbloc">FLORIDA</div>
+	         <div class="inbloc">TODAY</div>        
+	    </div>
+	    </section>
+	    
+<!-- CURVED LINE TO FIRST SECTION BOTTOM -->	      
+	    
+	   <div class="borderOut"></div>  
 
-<div class="bg-text">TEXT And mo Textxt</div>
 
 
-
+<!-- SECOND SECTION -->	    
 	
-	
+			<div class="bgImg fontCenter img2">
+			    <div>
+			        <p>Our mission is simple, to improve Florida one signature at a time</p>
+			    </div>
+	   </div>
+			    
+			
+			
+			    
+			   
+<!-- THIRD SECTION (IMAGE) -->			
+    
+		<section class="bubble">	   
+		   		     <div><p>We as a people have power we often do not exercise, and when change is needed it is that power that can make it happen.</p>
+		        </div>
+		        <div class="borderTwo"></div>   
+		      
+		    </section>
+		 
+
+
+<!-- FOURTH SECTION -->
+
+		  
+		  <div class="bgImg fontCenter img4">
+		        <div>		        	      
+		            <p>Every decision our government leaders make affects our lives, we must be vigilant to their choices and guide them in the correct path</p>
+		        </div>		     
+		    </div> 
+		     
+		
+		
+		<!-- FIFTH SECTION (IMAGE) AND BUTTON -->    
+		    
+		  <section class=" stry img5">
+		      
+		    <div><div class="bgBtn">View Active Petitions</div></div>
+		    <div class="borderThree"></div> 
+		     
+		    </section> 
+		
+		
+		
+		
+<!-- CURVE SECTION -->		
+		
+<section class="try">
+		    
+		    <div class="curve"></div>
+</section>
+
+	<br/>
+
+
+
+<div class="bgImg fontCenter img2">
+			    <div>
+			        <p>Our mission is simple, to improve Florida one signature at a time</p>
+			    </div>
+	   </div>
+
+
+
+		<?php 
+include('footer.php');
+?>   
+
 
 </body>
+</html>

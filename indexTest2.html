@@ -8,23 +8,15 @@
     <meta name="viewport" content="width=device-width"/>
 
     
- 
-
-
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;500&family=Lexend+Peta:wght@100;300&family=Open+Sans:wght@300;800&family=Russo+One&display=swap" rel="stylesheet">
 
 
-
     
     
-    <style type="text/css">        
-        
+    <style type="text/css">
 /*
-COLORS
 
 
 font-family: 'Kanit', sans-serif;
@@ -32,6 +24,9 @@ font-family: 'Lexend Peta', sans-serif;
 font-family: 'Open Sans', sans-serif;
 font-family: 'Russo One', sans-serif;
 
+
+
+COLORS
 
 ORANGE: rgba(255,136,0,.7);
 
@@ -120,7 +115,7 @@ content: ''; /* HELPS BACKGROUND IMAGE APPEAR IN ::AFTER SECTION */
  top: 0%;
   z-index: -1; 
  width: 100%; 
- background-image: url('break.jpg'); 
+ background-image: url('fl.jpg'); 
  height: 130vh;
 background-size:cover;
 background-repeat:no-repeat;
@@ -133,7 +128,7 @@ background-repeat:no-repeat;
 @keyframes slideShowHead {
 0%{ background-image:url('break.png');}
 25%{ background-image:url('800orangPat.png');}
-50% {background-image:url('hand.jpg');}
+50% {background-image:url('bw.jpg');}  /* NEW IMAGE ----*/
 75%{ background-image:url('pen.jpg');}
 100% {background-image:url('break.png');}
 
@@ -203,7 +198,7 @@ content: '';
  top: 0%;
   z-index: -1; 
  width: 100%; 
- background-image: url(newpro.jpg);   
+ background-image: url(black2.jpg);   
  background-size:cover;
   background-repeat:no-repeat;
  height: 150vh;
@@ -211,9 +206,9 @@ content: '';
 }
 
 @keyframes slideShow {
-0%{ background-image:url('newpro.jpg');}
-50%{ background-image:url('quillP.jpg');}
-100% {background-image:url('newpro.jpg');}
+0%{ background-image:url('pro.jpg');}
+50%{ background-image:url('quillP.jpg');} /* NEW ----- */
+100% {background-image:url('pro.jpg');}
 }
 
 
@@ -281,7 +276,6 @@ border-radius:45px;
 background:rgba(20,20,20,1);
 font-size:30px;
 border:1px solid white;
-z-index:150;
 }
 
 
@@ -385,10 +379,6 @@ width:20px;
 height:100%;
 }
 
-.invisible {
-display:none;
-}
-
     </style>
 
     <!--     Fonts     -->
@@ -399,13 +389,42 @@ display:none;
 
 	<body>
 	    
-	   <div class="invisible"><img src="800log.png" alt=""></div>
-	   
-	   <?php include('Header.php'); ?>
+	    
+	    <!-- HEADER.PHP -->
+<div class="mainHeader">
+    
+    <div class="headClickBlock">
+        <div class="headClickImg"><img src="800orange2.png" alt=""></div>
+    <div class="headClickTitle">changefloridatoday.com</div>
+    </div>
+    
+    <div class="headClick"> Petitions</div>
+    <div class="headClick">Links</div>
+        <div class="headClick">Supporters</div>    
+   <!--  <div class="headClickImge" onclick="openMenu()">•••</div> -->
+    
+</div>
+<!-- HEADER.PHP  -->
 
 
 
 
+<div class="dropDown" id="dropDown">
+    
+    
+    <div class="closeMenu" onclick="closeMenu()"><div class="clo"><img src="close.png" alt=""></div></div>
+    
+    <br/>
+    <div class="menuItem">Petitions</div>
+    
+    <div class="menuItem">Links</div>
+    
+    <div class="menuItem"></div>
+    <br/>
+    
+    
+    
+</div>
 
 
 
@@ -443,17 +462,17 @@ display:none;
 		      
 		    </div>
 		    
-		 <!-- FOURTH SECTION -->	    
+		 <!-- SECOND SECTION -->	    
 	
 			<div class="bgImg fontCenter img2">
 			    <div>
-			               <p>Every decision our government leaders make affects our lives, we must be vigilant to their choices and guide them in the correct path</p>
+			        <p>Our mission is simple, to improve Florida one signature at a time</p>
 			    </div>
 	   </div>
 	    
 
 
-<!-- FIFTH SECTION (IMAGE) -->			
+<!-- THIRD SECTION (IMAGE) -->			
     
 		<div class="imgSec rad2">	   
 		   		     <div> 
@@ -462,7 +481,8 @@ display:none;
 		        </div>
 		        <div class="borderGen borderThree">
 		            
-		            <div><a href="petitionList.php"><div class="bgBtn">View Active Petitions</div></a></div> 
+		              <div><a href="petitions.php"><div class="bgBtn">View Active Petitions</div></a></div>
+		            
 		        </div>   
 		      
 		    </div>  
@@ -479,5 +499,22 @@ display:none;
 
 
 
+<script>
+    
+    m = document.getElementById('dropDown');
+    
+    function openMenu() {
+    
+    m.style.height='250px';
+ 
+    }
+    
+    
+    function closeMenu() {
+    
+    m.style.height=0;
+    }
+    
+    </script>
 </body>
 </html>
