@@ -8,8 +8,17 @@
 
 
     <meta charset="utf-8"/>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+
+	<meta property="og:type" content="website" /> 
+	<meta property="og:image" content="https://changefloridatoday.com/800log.png" /> 
+<meta property="og:description" content="Your signature matters. Join us in making Florida better." /> 
+<meta property="og:url"content="https://changefloridatoday.com" /> 
+<meta property="og:title" content="Changing Florida one signature at a time" />
+<meta property="fb:app_id" content="966242223397117">
+	
+
 
 
 
@@ -19,12 +28,17 @@
 
 
 
-  <link rel="stylesheet"  type="text/css" href="style.css">
+<!-- STYLING REFERENCES ****************** -->
+
+  <link rel="stylesheet" type="text/css" href="main.css"> 
+  
+ <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="mainMobile.css">    
+
 
   
-      <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="StyleMobile.css"> 
-  
-   <link rel="stylesheet" type="text/css" media="screen and (min-width:900px)" href="StyleWide.css">  
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;500&family=Lexend+Peta:wght@100;300&family=Open+Sans:wght@300;800&family=Roboto:wght@100;400&family=Russo+One&display=swap" rel="stylesheet">
 
     
 
@@ -32,47 +46,7 @@
 
     
 
-    .linkBox {
-    width: 90vw;
-    padding:  5px;
-    padding-left:10px;
-    border: 1px solid rgba(220,220,220,.5);
-    margin: auto;
-    color:white;
-    font-size:18px;
-    background-color: rgba(210,110,20,.9);
-    border-radius: 20px 0 20px 20px;
-    transition: .5s;
-    position:relative;
-    }
-
-    .linkBox:hover {
     
-    background-color: rgba(200,200,210,.6);
-    }
-
-   
-.linkTitle {
-font-size:22px;
-font-weight:700;
-margin-bottom:-2px;
-}
-  
-  
-  .linkAddress {
-  font-size:16px;
-  color:rgba(220,220,220,.9);
-  }
-
-.linkBox img {
-height: 100%;
-position:  absolute;
-top:0;
-right:10%;
-opacity:.3;
-}
-
-
     </style>
 
 
@@ -100,17 +74,64 @@ opacity:.3;
 	include('Header.php');
 ?>
 		
-	<div class="HeaderOne">
-	    <div class="pageTitle creating">
-Links
 
-</div>
-			</div>
+	<!-- TITLE OF PETITION -->
 		
+		<div class="headerCurve ">
+<div class="borderPetition"></div>
+<div class="headerTitle">Links</div>
+	</div>
+
+	
 		
 		<br/>
 				<br/>
 
+
+	<div class="categoryList">
+	    
+	    <div class='linkCat' onclick='openCatAll("all");selectCat(this);'>
+	        
+	      <div class='catInner'>  All</div>
+	        
+	        </div>
+	    
+	  <?php   
+	  include('db_connect.php');
+	  
+	  $sqlc = "SELECT id, category FROM Categories";
+	  
+	  if($queryc = mysqli_query($db,$sqlc))
+	  {
+	  while($rowc = mysqli_fetch_assoc($queryc))
+	  {
+	  
+	  
+	  $categ = $rowc['id'];
+	  $catName = $rowc['category'];
+	  
+	  echo"
+		    <div class='linkCat' id='$categ' onclick='openCat($categ);selectCat(this);'>
+		        
+		        <div class='catInner'>$catName</div>
+		        
+		        </div>
+		  ";
+		  
+		  }
+		  
+		  }
+		  
+		  
+		  
+		  ?>  
+		</div>
+
+		
+	<br/>
+				<br/>
+		
+		<div class="linkHolder" id="linkHolder">
 		
 		<?php
 include('db_connect.php');
@@ -122,7 +143,7 @@ include('db_connect.php');
 	
 	}
   	
-  	$sql = "SELECT title, link, description FROM Links";
+  	$sql = "SELECT title, link, description, categoryid FROM Links";
   	 	 if ($queryl = mysqli_query($db,$sql))
   	 	 {
   	 	 
@@ -176,23 +197,96 @@ echo"
   	 	 }
   	 	 
 		
-		
 
-		 	
-		 	 
-		
-		 	 
-		 			 	
-  	 	 	 
-  	 	 	
-		 
-		
 		 
 		?>
-
+		
+		
+</div><!-- END LINKHOLDER*********************** -->
 		
 <?php 
 include('footer.php');
 ?>
+
+
+
+
+  <script>
+function openCat(str) {
+if (str =="") {
+document.getElementById("linkHolder").innerHTML="";
+return;
+} else {
+if 
+(window.XMLHttpRequest) {
+xmlhttp = new XMLHttpRequest();
+} else {
+xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.onreadystatechange = function()
+{
+if (this.readyState==4 && this.status==200) {
+document.getElementById("linkHolder").innerHTML= this.responseText;
+}
+}
+xmlhttp.open("GET","linksByCat.php?q=" +str, true);
+xmlhttp.send();
+}
+}
+</script>	 			
+
+
+
+
+  <script>
+function openCatAll(str) {
+if (str =="") {
+document.getElementById("linkHolder").innerHTML="";
+return;
+} else {
+if 
+(window.XMLHttpRequest) {
+xmlhttp = new XMLHttpRequest();
+} else {
+xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.onreadystatechange = function()
+{
+if (this.readyState==4 && this.status==200) {
+document.getElementById("linkHolder").innerHTML= this.responseText;
+}
+}
+xmlhttp.open("GET","linksByCatAll.php?q=" +str, true);
+xmlhttp.send();
+}
+}
+</script>	 			
+
+
+
+<script>
+    
+    function selectCat(x)
+    {
+    
+    allTabs = document.getElementsByClassName('linkCat');
+    
+    
+  
+  for(y = 0; y < allTabs.length ; y++ )		
+		{
+				
+		
+    
+    allTabs[y].style='border-color:rgba(255,136,0,.7); background-color:transparent;';
+ 
+    x.style='background-color:rgba(255,136,0,.7);';
+    
+    }
+    }
+    
+    
+</script>
+			
 
 </body>

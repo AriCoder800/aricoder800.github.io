@@ -1,139 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>    
+    <title>ChangeFloridaToday</title>
+
+	<meta property="og:type" content="website" /> 
+	<meta property="og:image" content="https://changefloridatoday.com/800log.png" /> 
+<meta property="og:description" content="Your signature matters. Join us in making Florida better." /> 
+<meta property="og:url"content="https://changefloridatoday.com" /> 
+<meta property="og:title" content="Changing Florida one signature at a time" />
+<meta property="fb:app_id" content="966242223397117">
+	
+
+
+    
+    
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-    
- 
+
+
+<!-- STYLING REFERENCES ****************** -->
+
+  <link rel="stylesheet" type="text/css" href="main.css"> 
+  
+ <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="mainMobile.css">    
 
 
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;500&family=Lexend+Peta:wght@100;300&family=Open+Sans:wght@300;800&family=Russo+One&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;500&family=Lexend+Peta:wght@100;300&family=Open+Sans:wght@300;800&family=Quicksand:wght@300;600&family=Roboto:wght@100;400&family=Russo+One&display=swap" rel="stylesheet">
 
 
     
     
     <style type="text/css">        
         
-/*
-COLORS
 
-
-font-family: 'Kanit', sans-serif;
-font-family: 'Lexend Peta', sans-serif;
-font-family: 'Open Sans', sans-serif;
-font-family: 'Russo One', sans-serif;
-
-
-ORANGE: rgba(255,136,0,.7);
-
-BLUE: rgba(33,150,243,.7);
-
-RED: rgba(220,20,20,.7);
-
-*/
-
-body {
-background-color:rgba(20,20,20,1);
-color:white;
-margin:0;
-padding:0;
-}    
-
-a {
- 	color: inherit;
-text-decoration: none;
-height:inherit;
-width:inherit;
-margin-top:0px;
-    
-}    
-    
-    /*  GENERAL FOR ALL NON-IMAGE SECTIONS */
-    
-  .bgImg {
- <!--  font-family: 'Russo One', sans-serif; -->
-  
-  background-color: rgba(20,20,20,.7);
-  height:  120vh;
-  width:100vw;
-  position: relative;   
-  font-family: 'Kanit', sans-serif;
-  text-align:center
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  background-size:cover;
-  background-repeat:no-repeat;
-  }
-
-
-/*  FIRST SECTION ONLY  */
-
-
-/* FOR HEADLINE TEXT ALIGNMENT */
-
-.bloc div {
-height:75px;
-padding: 0 10px;
-}
-
-.bloc {
-  display:block;
-  width:100%;
-  font-size:75px;
-  font-weight:900;
-  font-family: 'Lexend Peta', sans-serif;
-  text-align:right;
-    
-}
-
-
-/* MAIN DIV */
-
-.img1 {
-background-color:rgba(20,20,20,.3); /* CREATES THE DARK TINT OVER IMAGE */
-height:130vh; /* BASE SPACE FOR IMAGE IN ::AFTER */
-text-align:right;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-border-bottom-left-radius:100% 70%;
-}
-
-
-/* CREATES IMAGE AND CURVES ITS OUTLINE */
-
-.img1::after {
-content: ''; /* HELPS BACKGROUND IMAGE APPEAR IN ::AFTER SECTION */
- border-bottom-left-radius:100% 70%; 
- position: absolute; 
- top: 0%;
-  z-index: -1; 
- width: 100%; 
- background-image: url('break.jpg'); 
- height: 130vh;
-background-size:cover;
-background-repeat:no-repeat;
- animation: slideShowHead 20s infinite ;
-}
-
-
-/* ANIMATION TO CHANGE IMAGE */
+/* ANIMATION TO CHANGE IMAGE ---------- CHANGE HERE NOT IN MAIN.CSS --------*/
 
 @keyframes slideShowHead {
 0%{ background-image:url('break.png');}
 25%{ background-image:url('800orangPat.png');}
-50% {background-image:url('hand.jpg');}
+50% {background-image:url('hands3.jpg');}
 75%{ background-image:url('pen.jpg');}
 100% {background-image:url('break.png');}
 
@@ -141,74 +54,7 @@ background-repeat:no-repeat;
 
 
 
-/*  FIRST SECTION CURVED BORDER */
 
-
-.borderOut {
-border-bottom:2px solid rgba(255,136,0,.7);  /* rgba(33,150,243,.7); */
-position:absolute;
-height:140vh;
-top:0;
-border-bottom-left-radius:100% 80%;
-left:0;
-width:100vw;
-z-index:1;
-}
-
-
-
-/*  SECOND SECTION */
-
-  .bgImg {  
-  background-color: rgba(20,20,20,.7);
-  height:  130vh;
-  width:100vw;
-  position: relative;   
-  font-family: 'Lexend Peta', sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  }
-
-.fontCenter {
-font-size: 30px;
-text-align:center;
-}
-
-.img2 {
-
-}
-
-
-
-
-/*   THIRD SECTION  */
-
-.imgSec {
-  background-color: rgba(20,20,20,.7);
-  height:  150vh;
-  width:100vw;
-  position: relative;
-  font-size:30px;
-  font-weight:700;
-  text-align:center;
-  display:flex;
-  justify-content:center;
-  align-items:center; 
-}
-
-.imgSec::after {
-content: '';
- position:absolute ; 
- top: 0%;
-  z-index: -1; 
- width: 100%; 
- background-image: url(newpro.jpg);   
- background-size:cover;
-  background-repeat:no-repeat;
- height: 150vh;
- 
-}
 
 @keyframes slideShow {
 0%{ background-image:url('newpro.jpg');}
@@ -217,54 +63,6 @@ content: '';
 }
 
 
-.rad1::after {
-border-top-left-radius: 70% 20%; /* FIRST PARAMETER AFFECTS TOP RIGHT REACH  */
- border-bottom-right-radius: 70% 50%;
-animation: slideShow 10s infinite ;
-}
-
-
-
-/* GENERAL STYLING FOR CURVED BORDERS IN BODY OF PAGE */
-
-.borderGen {
-border-top:2px solid rgba(255,136,0,.7);   /* rgba(220,220,220,.7);  */
-border-bottom:2px solid rgba(255,136,0,.7); /*  rgba(220,220,220,.7);  */
-position:absolute;
-height:162vh;
-width:100vw;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-
-.borderTwo{
-border-top-left-radius:70% 20%;
-width:100%;
-top:-30px;
-border-bottom-right-radius:60% 70%;
-z-index:401;
-}
-
-
-
-
-/* SECTION 5 CUSTOM */
-
-.rad2::after {
-border-top-right-radius: 70% 50%; /* FIRST PARAMETER AFFECTS TOP RIGHT REACH  */
- border-bottom-left-radius: 70% 30%;
- animation: slideShow2 10s infinite ;
-}
-
-.borderThree{
-border-top-right-radius:70% 30%;
-width:100%;
-top:-30px;
-border-bottom-left-radius:60% 50%;
-z-index:11;
-}
 
 @keyframes slideShow2 {
 0%{ background-image:url('fists.jpg');}
@@ -274,120 +72,6 @@ z-index:11;
 }
 
 
-.bgBtn {
-
-padding:30px;
-border-radius:45px;
-background:rgba(20,20,20,1);
-font-size:30px;
-border:1px solid white;
-z-index:150;
-}
-
-
-
-/* MAINHEADER DETAIL */
-
-.mainHeader {
-height: 75px;
-width:100vw;
-background-color:rgba(20,20,20,.8);
-display:flex;
-justify-content:space-around;
-align-items:center;
-position:fixed;
-top:0;
-left:0;
-z-index:100;
-font-size:20px;
-border-bottom-right-radius:100% 50%;
-border-bottom:1px solid rgba(220,220,220,.1);
-box-shadow: 0 1px 5px rgba(220,220,220,.1);
-}
-
-
-
-.headClick {
-height:auto;
-margin: 0 30px;
-font-weight:700;
-color:rgba(220,220,220,.9);
-
-}
-
-.headClickImg {
-height:50px;
-width: 50px;
-
-display:flex;
-}
-
-.headClickImg img {
-height:100%;
-width:100%;
-object-fit:cover;
-
-}
-
-.headClickTitle {
-font-weight:900;
-margin-left:5px;
-height:20px;
-}
-
-.headClickBlock {
-display:flex;
-align-items:center;
-}
-
-.headClickImge {
-height:40px;
-width:10px;
-
-}
-
-.headClickImge img {
-height:100%;
-}
-
-
-.dropDown {
-width:200px;
-height: 0;
-overflow:hidden;
-background-color:rgba(220,220,220,.9);
-position:fixed;
-top:0;
-right:0;
-z-index:200;
-border-bottom-left-radius:10% 10%;
-color:black;
-transition:.5s;
-}
-
-.menuItem {
-width:100%;
-padding:20px;
-border-top:1px solid rgba(220,220,220,.9);
-}
-
-.closeMenu {
-width:100%;
-padding:20px;
-}
-
-.clo {
-height:20px;
-width:20px;
-}
-
-.clo img {
-height:100%;
-}
-
-.invisible {
-display:none;
-}
 
     </style>
 
@@ -477,7 +161,13 @@ display:none;
 	   </div>   
 
 
+<br/>
+<br/>
+<br/>
 
+<!-- FOOTER PHP LINK -->
+
+<?php include('footer.php'); ?>
 
 </body>
 </html>

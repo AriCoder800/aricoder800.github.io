@@ -34,14 +34,29 @@ if( mysqli_query($db, $query))
   if (isset($_POST['add_pdf'])) { 
    // receive all input values from the form
 
-  $title = mysqli_real_escape_string($db,$_POST['title']);  
+  $title = mysqli_real_escape_string($db,$_POST['title']); 
+  
+  echo '<br/>$title<br/>';
+  
+  $details = mysqli_real_escape_string($db,$_POST['details']);
+
+
+echo '<br/>$details<br/>';
+
+
+ $image_name = $_FILES['cover']['name']; 
+$image_type = $_FILES['cover']['type'];
+
+echo '<br/>$image_type'. $image_type ;
+echo '<br/>$image_name'. $image_name ;
+
 
 
  $file_name = $_FILES['pdf_file']['name']; 
 $file_type = $_FILES['pdf_file']['type'];
 
-echo '$file_type'. $file_type ;
-echo '$file_name'. $file_name ;
+echo '<br/>$file_type'. $file_type ;
+echo '<br/>$file_name'. $file_name ;
 
 
 
@@ -56,11 +71,14 @@ echo '<br/> file not a pdf, try again <br/>';
 
 
 
+$image_folder = 'Images/';
 $target_folder = 'Pdf/';
 
+
+$image_path = $image_folder . basename($_FILES['cover']['name']);
 $pdf_path =  $target_folder . basename($_FILES['pdf_file']['name']);
 
-echo $pdf_path;
+
 
 
 // FOR THE PDF PROCESSING 
@@ -74,18 +92,24 @@ else
 echo '<br/> unable to upload <br/>';
 }
 
-$pdf = $pdf_path;
 
-
-
-  $query = "INSERT INTO Petitions (filepdf, date) 			 VALUES( '$pdf', NOW())"; 	  
-if( mysqli_query($db, $query) )  
- {
-echo '<br/> data successful <br/>';
+if (move_uploaded_file($_FILES['cover']['tmp_name'], $image_path))
+{
+echo '<br/> image uploaded<br/>';
 }
 else 
 {
-echo '<br/> data did not go through <br/>';
+echo '<br/> unable to upload image<br/>';
+}
+
+$img = $image_path;
+$pdf = $pdf_path;
+
+
+  $query = "INSERT INTO Petitions (title, description, date, filepdf, covername) 			 VALUES('$title', '$details', NOW(),  '$pdf', '$img')"; 	  
+if( mysqli_query($db, $query) )  
+ {
+ header('location: petitionList.php');
 }
 
 

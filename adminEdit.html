@@ -56,7 +56,7 @@ if (!isset($_SESSION['username']))
 
 
 
-  <link rel="stylesheet"  type="text/css" href="style.css">
+  <link rel="stylesheet"  type="text/css" href="admin.css">
 
   
       <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="StyleMobile.css"> 
@@ -69,47 +69,35 @@ if (!isset($_SESSION['username']))
 
     
 
-    .adminEditBox {
-    width: 90vw;
-    padding:10px;
-    border-top: 1px solid rgba(220,220,220,.5);
-    border-bottom: 1px solid rgba(20,20,20,.5);
-    margin: auto;
-    color:white;
-    font-size:18px;
-    background-color: rgba(20,20,20,.7);
-    border-radius: 25px;
-    transition: .5s;
-    position:relative;
-    }
-
     
-.linkTitle {
-font-size:20px;
-font-weight:700;
-margin-bottom:-2px;
+    
 
-}
   
-  
-  .linkAddress {
-  font-size:15px;
-  color:rgba(220,220,220,.9);
-  }
 
-.removeBtn {
+
+.adminEditBtn {
 height:60px;
 width:100%;
 display:flex;
     justify-content:center;
     align-items:center;
-background-color:red;
 border-radius:20px;
 
 transition:.5s;
 }
 
 
+.removeBtn {
+background-color:red;
+}
+
+.permissionBtn {
+background-color:limegreen;
+}
+
+.permissionBtn:hover {
+background-color:rgba(0,155,0,.9);
+}
 .removeBtn:hover {
 background-color:rgba(220,10,10,.7);
 }
@@ -119,7 +107,7 @@ width: 500px;
 height: 300px;
 background-color:rgba(200,200,200,.9);
 border:2px solid white;
-
+display:none;
 border-radius:25px;
 position:fixed;
 top:50vh;
@@ -127,18 +115,9 @@ left:50vw;
 margin-left:-250px;
 margin-top:-150px;
 transition:1s;
-
 justify-content:center;
 align-items:center;
 
-
-
-display:block;
-}
-
-#warn {
-display:none;
-transition:1s;
 }
 
 
@@ -201,6 +180,30 @@ justify-content: center;
 align-items: center;
 }
 
+.btnSpc {
+margin-top:20px;
+}
+
+
+.forLine {
+border-top:1px solid rgba(220,220,220,.6);
+
+}
+
+
+
+.logout {
+float:right;
+font-size:20px;
+font-weight:300;
+align-self:center;
+
+}
+
+
+.permHold {
+text-align:center;
+}
     </style>
 
 
@@ -240,9 +243,12 @@ align-items: center;
 		
 	<div class="HeaderOne">
 	    <div class="pageTitle creating">
-Admin List
+<span>Admin List</span>
+
 
 </div>
+
+
 			</div>
 		
 		
@@ -255,14 +261,31 @@ Admin List
 		 	
 		 	 
 		 	
-		 	<span class="linkTitle"> <p>$username</p></span>
-		 	<span class="linkAddress"> <p>$email</p>  </span>  
+		 	<span class="linkTitle "> <p>$username</p></span>
+		 	<span class="adminEmail "> <p>$email</p>  </span>  
 		 	     
 		 	     <br/>
-		 	     
-		 	     
-		 	     
-		 	   <div   onclick='warnin()'  class="removeBtn">
+		 	 
+		 	 
+		 	  <span class="permHold"> <p>Permissions</p></span>
+		 	  
+		 	 <div     class="adminEditBtn permissionBtn btnSpc">
+		 	    <div  >Create Petitions</div>        
+		 	   </div><!-- removeBtn -->    
+		 	   
+		 	      <div   onclick='warnin(warn)'  class="adminEditBtn permissionBtn btnSpc">
+		 	    <div  >Add Categories</div>        
+		 	   </div><!-- removeBtn -->
+		 	   
+		 	 <div   onclick='warnin(warn)'  class="adminEditBtn permissionBtn btnSpc">
+		 	    <div  >Add Link</div>        
+		 	   </div><!-- removeBtn --> 
+		 	   
+		 	   <br/>
+		 	   <div class="forLine"></div>
+		 	   <br/>
+		 	   
+		 	   <div   onclick='warnin(warn)'  class="adminEditBtn removeBtn btnSpc">
 		 	    <div  >Remove</div>        
 		 	   </div><!-- removeBtn -->
 		 	   
@@ -282,7 +305,7 @@ Are you sure?</div><!-- innerWarn --></div>
 		 	     
 		 	     <div class="warnOps">
 		 	         
-		 	         <div class="warnBtn cnclBtn" onclick="closeWarn()">
+		 	         <div class="warnBtn cnclBtn" onclick="closeW(warn)">
 		 	           <div class="wbh">  <div>Cancel</div></div>
 		 	             </div>
 		 	             
@@ -305,37 +328,42 @@ Are you sure?</div><!-- innerWarn --></div>
 		
 <script>		
 		 
-		 w = document.getElementById('warn');
+			allin =
+		document.getElementsByClassName('warnBox');
 		 
+//OPENS WARNING		 
+		 function warnin(x)   
+		 {		 		 		 
 		 
-		 function warnin()   
-		 {
-		 
-		 
-		 
-		 
-		 if (w.style.display!="block")
-		 {
-		 w.style.display="block";
+		 for(i = 0; i < allin.length ; i++ )		
+		{
+				
+		allin[i].style.display='none';
+		 x.style.display='block';
 		 
 		 
 		 }
 		    }
 		    
-		  function closeWarn()
+		    
+//CLOSES WARNING		    
+		  function closeW(y)
+		  {		  
+		  if(y.style.display!='none')		  
 		  {
-		  if(w.style.display!='none')
-		  {
-		  w.style.display='none';
 		  
+		  for(i = 0; i < allin.length ; i++ )		
+		{
+				
+		allin[i].style.display='none';
+		  
+		  y.style.display='none';
 		  
 		  }
+		 }
 		  }  
-		    
-		    
-		    
+		   	    
 		</script>
-		
 			<!-- STROKES FOR GALLERY -->
 	<script>
 function delAdmin(str) {

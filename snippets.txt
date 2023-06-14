@@ -32,3 +32,76 @@ resize_image($file, "360");
 
  }
  
+
+
+<!-- ************************************************** -->
+
+<!-- FOR PREVIEWING IMAGES WITH MULTIPLE IMAGES PER PAGE #FILE AS VARIABLE -->
+
+<div class="imgAndBtn">
+    
+    <div class="imgEdits"><img src="picone.jpg" id="preview4" >
+    		  <input type="file" style="display:none"  id="file4" name="picture"  accept="image/*" onchange="previewFile('4')">         		  
+    </div>
+    <div class="indexImgEditBtn" onclick="document.getElementById('file4').click();"  >Change Image</div>
+    <div class="indexImgEditBtn savBtn" id="saveBtn4">Save Change</div>
+    
+</div><!-- imgAndBtn -->
+
+<!-- USES THIS SCRIPT -->
+
+<script>
+    
+    	function previewFile(x)
+ { 
+ var saveon = document.getElementById('saveBtn' + x);
+ var preview = document.getElementById('preview' + x); 
+ var file = document.querySelector('#file'+x+'[type=file]').files[0]; 
+ preview.style="border-color:white";
+ var reader = new FileReader(); reader.addEventListener("load", function () { preview.src = reader.result; }, false); 
+ if (file)
+  { reader.readAsDataURL(file);
+  saveon.style='color:white; border-color:white; background-color:black;';
+   }
+   }
+
+</script>
+
+<!-- ************************************************* -->
+
+
+<script>
+    
+//FUNCTIONAL TO SEND FILES IMAGES USING AJAX CODE
+
+function createCov()
+{
+
+
+var formData = new FormData();
+
+ formData.append("file", file9.files[0]);
+
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = 
+function()
+{
+if (this.readyState==4 && this.status==200)
+{
+document.getElementById("edco").innerHTML=this.responseText;
+}
+};
+
+xhttp.open("POST","updateCover.php",true);
+//xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+// uses userid variable for references
+
+xhttp.send(formData);
+}
+    
+</script>	 			
+
+
+
+<!-- ************************************** -->

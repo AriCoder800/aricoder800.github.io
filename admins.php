@@ -35,7 +35,7 @@ if (!isset($_SESSION['username']))
 
 
 
-  <link rel="stylesheet"  type="text/css" href="style.css">
+  <link rel="stylesheet"  type="text/css" href="admin.css">
 
   
       <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="StyleMobile.css"> 
@@ -52,47 +52,6 @@ if (!isset($_SESSION['username']))
 
 
     
-.adOpBar {
-width:90vw;
-height: 70px;
-padding:0 20px;
-border-top:1px solid rgba(220,220,220,.7);
-border-bottom:1px solid rgba(10,10,10,.2);
-margin:auto;
-margin-top:10px;
-display:flex;
-align-items:center;
-color:white;
-font-size: 18px;
-font-weight:500;
-transition: .5s;
-}
-
-  .adOpBar:hover {
-  background-color:rgba(220,220,220,.3);
-  color:white;
-  } 
-   
-   
-
-.borderTop {
-width:  80%;
-border-top: 1px solid rgba(220,220,220,.5);
-position: absolute;
-top:0;
-}
-
-
-.pageUser {
-    	width: 100%;
-    	height: auto;
-    	color: black;
-    	font-size: 2em;
-    	font-weight: 700;
-    	padding:10px;
-    	margin-left:10vw;
-    	
-    }
 
 
     </style>
@@ -127,7 +86,7 @@ top:0;
 
 			</div>
 
-		<a href="logout.php"><div>Logout</div></a>
+		<a href="logout.php"><div class="logoutBtn">Logout</div></a>
 </div>
 
 		</div>

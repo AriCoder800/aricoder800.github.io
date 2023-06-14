@@ -1,0 +1,291 @@
+<!-- 2 -->
+
+
+<div class='imgAndBtn'>
+    
+    <div class='imgEdits secOneImg'><img src='$imgTwo' id='preview2' >
+    		  <input type='file' style='display:none'  id='file2' name='picture' accept='image/*' onchange='previewFile($two)'>  
+    		
+    		         		  
+    </div>
+        <div class='num1img'>2</div>
+    
+    <div class='indexImgEditBtn' id='changeBtn2' onclick='document.getElementById($file2).click();'  >Change Image</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn2'>Save Change</div>
+    
+</div><!-- imgAndBtn -->
+
+<!-- 3 -->    
+    
+  <div class='imgAndBtn'>
+    
+    <div class='imgEdits secOneImg'><img src='$imgThree' id='preview3' >
+    		  <input type='file' style='display:none'  id='file3' name='picture' accept='image/*' onchange='previewFile($thr)'> 
+    		    
+    		          		  
+    </div>
+    <div class='num1img'>3</div>
+    
+    
+    <div class='indexImgEditBtn' id='changeBtn3' onclick='document.getElementById($file3).click();' >Change Image</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn3'>Save Change</div>
+    
+</div><!-- imgAndBtn --> 
+    
+    
+
+<!-- 4 -->
+
+
+<div class='imgAndBtn'>
+    
+    <div class='imgEdits secOneImg'><img src='$imgFour' id='preview4' >
+    		  <input type='file' style='display:none'  id='file4' name='picture' accept='image/*' onchange='previewFile($fou)'>     
+    		 
+    		      		  
+    </div>
+     <div class='num1img'>4</div>
+    
+    
+    <div class='indexImgEditBtn' id='changeBtn4' onclick='document.getElementById($file4).click();' >Change Image</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn4'>Save Change</div>
+    
+</div><!-- imgAndBtn -->
+
+<!-- 5. -->
+
+
+<div class='imgAndBtn'>
+    
+    <div class='imgEdits secOneImg'><img src='$imgFive' id='preview5' >
+    		  <input type='file' style='display:none'  id='file5' name='picture'  accept='image/*' onchange='previewFile($fiv)'>  
+    
+    		         		  
+    </div>
+    		    <div class='num1img'>5</div>
+    
+    
+    
+    <div class='indexImgEditBtn' id='changeBtn5' onclick='document.getElementById($file5).click();' >Change Image</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn5'>Save Change</div>
+    
+</div><!-- imgAndBtn -->
+
+
+
+
+</div><!-- imgEditHold -->
+	
+	
+	<!-- FIRST SECTION TEXT **************** -->
+	
+	
+	<h2>Section One (Headline Title)</h2>
+	
+	<div class='img1'>
+	    <div class='bloc'>
+	        <div class='inbloc'>CHANGE</div>
+	         <div class='inbloc'>FLORIDA</div>
+	         <div class='inbloc'>TODAY</div>   
+	             
+	    </div>
+	  
+	    </div>
+	    
+	    
+	   <!-- DIVISION BORDER --> 
+	    
+	    <div class='borderSec'></div>
+
+
+
+
+
+
+
+
+	    
+	    
+ <!-- SECOND SECTION TEXT ONLY ************************ -->	    
+	
+<h2>SectionTwo (Text Only)</h2>
+	
+	
+	
+	
+			
+			    <div>
+			        <input type='text' value='Our mission is simple, to improve Florida one signature at a time' id='line1' name='line1' class='editIndexText'>
+			    </div>
+
+	    
+
+
+<!-- DIVISION BORDER -->
+
+<div class='borderSec'></div>
+
+
+
+
+
+
+<!-- THIRD SECTION (IMAGE) ************************************* -->			
+    
+   
+   
+ <h2>Section Three (Slideshow Images)</h2> 
+    
+    
+    <!-- 6 -->    
+    
+  <div class='imgAndBtn'>
+    
+    <div class='imgEdits secTwoImg'><img src='$imgSix' id='preview6' >
+    		  <input type='file' style='display:none'  id='file6' name='picture' accept='image/*' onchange='previewFile($six)'>  
+    		
+    		         		  
+    </div>
+    
+       <div class='num1img'>6</div>
+    
+    <div class='indexImgEditBtn' id='changeBtn6' onclick='document.getElementById($file6).click();' >Change Image</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn6'>Save Change</div>
+    
+</div><!-- imgAndBtn --> 
+    
+    
+
+<!-- 7 -->
+
+
+
+<div class='imgAndBtn'>
+    
+    <div class='imgEdits secTwoImg'><img src='$imgSeven' id='preview7' >
+    		  <input type='file' style='display:none'  id='file7' name='picture' accept='image/*' onchange='previewFile($sev)'>  
+    		 
+    		         		  
+    </div>
+       <div class='num1img'>7</div>
+    
+    
+    <div class='indexImgEditBtn' id='changeBtn7' onclick='document.getElementById($file7').click();' >Change Image</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn7'>Save Change</div>
+    
+</div><!-- imgAndBtn -->
+
+        
+<!-- THIRD SECTION TEXT ****************** -->   
+
+ <h2>Section Three (Text)</h2> 
+
+		
+		   		     <div><input   class="editIndexText"  type="text" value="We as a people have power we often do not exercise, and when change is needed it is that power that can make it happen." id="line2" name="line2"></input>
+		        </div>
+		    
+		    
+		
+		
+	<!-- DIVISION BORDER -->
+
+<div class="borderSec"></div>
+
+		
+		
+		
+		    
+		        
+		 <!-- FOURTH SECTION  TEXT ONLY ****************************-->	    
+	
+		
+		 <h2>Section Four (Text Only)</h2> 
+		
+			
+			               <input class="editIndexText" value="very decision our government leaders make affects our lives, we must be vigilant to their choices and guide them in the correct path" type="text" id="line3">
+			                   
+			               </input>
+			  
+	    
+
+
+
+	<!-- DIVISION BORDER -->
+
+<div class="borderSec"></div>
+
+
+
+<!-- FIFTH SECTION (IMAGE) ******************************* -->			
+    
+  <h2>Section Five (Slideshow Images)</h2>   
+    
+    
+		 <!-- 8 -->    
+    
+  <div class="imgAndBtn">
+    
+    <div class="imgEdits secThreeImg"><img src="$imgEight" id="preview8" >
+    		  <input type="file" style="display:none"  id=8" name="file8"  accept="image/*" onchange="previewFile($eig)">  
+    		 
+    		         		  
+    </div>
+    
+       <div class="num1img">8</div>
+    
+    <div class="indexImgEditBtn" id="changeBtn8" onclick="document.getElementById($file8).click();"  >Change Image</div>
+    <div class="indexImgEditBtn savBtn" id="saveBtn8"  onclick="uploadFile()">Save Change</div>
+    
+</div><!-- imgAndBtn --> 
+    
+    
+         
+    
+
+<!-- 9 -->
+
+
+
+<div class="imgAndBtn">
+    
+    <div class="imgEdits secThreeImg"><img src="$imgNine" id="preview9" >
+    		  <input type="file" style="display:none"  id="file9" name="file9"  accept="image/*" onchange="previewFile($nin)">  
+    		 
+    		         		  
+    </div>
+       <div class="num1img">9</div>
+    
+    
+    <div class="indexImgEditBtn" id="changeBtn9" onclick="document.getElementById($file9).click();"  >Change Image</div>
+    <div class="indexImgEditBtn savBtn" id="saveBtn9" onclick="createCov();">Save Change</div>
+    
+</div><!-- imgAndBtn -->
+
+
+
+
+    <div id="edco"></div>
+    
+		
+		 
+		 
+	<!-- DIVISION BORDER -->
+
+<div class="borderSec"></div>
+	 
+		 
+		  
+		  
+		 <!-- SIXTH SECTION (TEXT ONLY)*************************** -->	    
+	
+		
+	 <h2>Section Six (Text Only)</h2> 
+			
+			        <input type="text" class="editIndexText" value="Our mission is simple, to improve Florida one signature at a time" id="line4"></input>
+			   
+			   
+			   
+			   
+			   
+			   
+</div><!-- INDEX EDIT HOLD -->

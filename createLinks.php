@@ -38,20 +38,9 @@ if (!isset($_SESSION['username']))
 
 
  <link rel="stylesheet" type="text/css" href="style.css" />
-  
-
-      <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="StyleMobile.css"> 
-  
-   <link rel="stylesheet" type="text/css" media="screen and (min-width:900px)" href="StyleWide.css">  
-    
 
     <style type="text/css">
 
-    
-
-    
-
-    
 
    .btnContent {
    background-color: transparent;
@@ -62,19 +51,28 @@ if (!isset($_SESSION['username']))
    height:inherit;
    border: 1px solid transparent;
    }
+   
+   .catSelect {
+width:85vw;
+height:50px;
+padding:10px;
+border-radius:10px;
+outline:transparent;
+color:white;
+background-color:rgba(140,140,140,.3);
+font-size:16px;
+}  
 
-  
+#countdown {
+float:right;
+color:rgba(220,220,220,.5);
+margin-right:50px;
+}
+   
+   
+   
 
-
-    </style>
-
-
-
-    <!--     Fonts     -->
-
-  
-
-
+  </style>
 
 </head>
 
@@ -82,15 +80,7 @@ if (!isset($_SESSION['username']))
 
 <body>
 
-	
 
-	
-
-	
-
-	
-
-		
 	<div class="HeaderOne">
 	    <div class="pageTitle creating">
 Add Links
@@ -105,54 +95,85 @@ Add Links
 			
 		
 		
- <form class="form"  method="post" action="addContent.php" > 	<?php include('errors.php'); ?> 	
+ <form class="form"  method="post" action="addContent.php" > 	
 		
 		<h1>Add a new link</h1>
 
-<h2></h2>
-		
-		 <div   class="input-group" >
+				 <div   class="input-group" >
 		     
 		      <label>Title of Website</label> 		
-		     
-		     
-		 
+		     		     		 
 		   <input id="title" type="text" name="title" ></input>
 		    
 		    <br/>
 		    <br/>
 		      <label>Type complete website address (include https://)</label> 		
-		     
-		     
-		 
+		     		     		 
 		   <input  id="link" type="text" name="link"></input>
 		    
 		    <br/>
 		    <br/>
 		    
+		     <label>Give a brief Description</label> 		
+		     		     		 
+		   <input  id="description" type="text" name="description" onkeyup="countdown(this.value);limitText(this,100)" onkeydown="limitText(this,100);"></input>
+		   
+		
+		<div id="countdown">100</div>
+		    
+		    
+		    <br/>
+		    <br/>
+		   
+		   
+		    
+		      <label>Select a Category</label> 		
+<select class='catSelect' name="category">
+
+<!-- DIPLAYS THE CATEGORIES AVAILABLE -->    
+
+   <?php 
+   include('db_connect.php');
+   
+     $sqlc = "SELECT id, category FROM Categories";
+	  
+	  if($queryc = mysqli_query($db,$sqlc))
+	  {
+	  while($rowc = mysqli_fetch_assoc($queryc))
+	  {
+	   
+	  $categ = $rowc['id'];
+	  $catName = $rowc['category'];
+	  
+	  echo "
+	  
+<option  value='$categ' >$catName </option>
+    ";
+    }
+    }
+    ?>
+
+		    </select>
+		    
+		     <br/>
+		    <br/>
 		    
 		    
 		    <div class="stepsContainer" >
-		 
-		 
-		 
+		 		 		 
 		 <div class="floatR">
-		     
-		     
+		     		     
 		 	 <a href="ready.html">
 		 	  <div class="stepsBtn btn">
 		   back  
  </div>
  </a>
- 
-   
+    
 		<div class="stepsBtn btn">
 		    <button id="submit" type="submit" class="btnContent" name="add_link" onclick="loader(); loadertime()" >Add Link</button> 	
 		 </div>		 
 		 
-		 
-		 
-		 </div><!-- steps container -->
+		</div><!-- steps container -->
 		 
 		 
 		 </div><!-- input-group -->
@@ -162,17 +183,43 @@ Add Links
 		    
 		    </form>
 		    
-		  <a href="links.php"> <div class="stepsBtn">Go to Links Page</div></a>
+		  
 		    <br/>
 		    <br/>
-		
-
-
-
+		    
+		<?php 
+include('footer.php');
+?>   
+	
+	
+	<script>
+	    
+	   //LIMITS CHARACTER AMOUNT IN INPUT FIELD
+	   
+	    function countdown(cnt)
+	    {
+	    wrd = cnt.length;
+	    c = document.getElementById("countdown");
+	    
+	    c.innerHTML = 100 - wrd;
+	     if(cn.length>100)
+	    {
+	    c.innerHTML = 0;
+	    }
+	   
+	    }
+	    
+// ASSISTS TO STOP EXCESS CHARCTERS IN INPUT BOX
+      function limitText(limitField, limitNum)
+   {
+   if(limitField.value.length > limitNum)
+   {
+   limitField.value = limitField.value.substr(0, limitNum);
+   }
+   }
 
 		    
-		    
-		    
-		    </div>
+ 
+</script>
 
 </body>

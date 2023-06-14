@@ -15,13 +15,18 @@
 
 
 
-  <link rel="stylesheet"  type="text/css" href="style.css">
+<!-- STYLING REFERENCES ****************** -->
 
-  <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="StyleMobile.css"> 
+  <link rel="stylesheet" type="text/css" href="main.css"> 
   
-   <link rel="stylesheet" type="text/css" media="screen and (min-width:900px)" href="StyleWide.css">     
+ <link rel="stylesheet" type="text/css" media="screen and (max-width:770px)" href="mainMobile.css">    
 
-    
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;500&family=Lexend+Peta:wght@100;300&family=Open+Sans:wght@300;800&family=Roboto:wght@100;400&family=Russo+One&display=swap" rel="stylesheet">
+
 
     <style type="text/css">
 
@@ -69,7 +74,8 @@
 	include('Header.php');
 ?>
 
-			</div>
+		
+<!-- PETITION PHP DATA -->
 
 <?php 
 include('db_connect.php');
@@ -95,12 +101,27 @@ $id =$row['id'];
  
 echo "
 
+
+<style>
+    .headerCurve::after {
+    background-image:url('$image');
+    }
+    
+    </style>
+    
+    
+	<!-- TITLE OF PETITION -->
+				
+		<div class='headerCurve hc'>
+<div class='borderPetition'></div>
+<div class='headerTitle'>$title</div>
+	</div>
+
+
+<br/>
+
+
    <div class='headerPetition'>
-
-  
-
-<h2 > $title</h2>
-
 
 
 </div>
@@ -132,6 +153,11 @@ echo "
 
 
 <div class='petitionText'>
+   
+   <!-- INNER CURVE DESIGN --> 
+    <div class='borderPetInner'></div>
+    <div class='borderPetInner2'></div>
+    
     
     <div class='textInner'>
 

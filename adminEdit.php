@@ -127,8 +127,8 @@ Admin List
 		 	
 		 	 
 		 	
-		 	<span class='linkTitle'> <p>$usrnm - $idp </p></span>
-		 	<span class='linkAddress'> <p>$eml - $id</p>  </span>  
+		 	<span class='linkTitle'> <p>$usrnm  </p></span>
+		 	<span class='linkAddress'> <p>$eml </p>  </span>  
 		 	     
 		 	     <br/>
 		 	     
@@ -144,7 +144,7 @@ Admin List
 		 			
 		 			<div class='warnBox' id='$wn$idp'>  
 		 	  <div  class='inWarnBox'>   <div class='innerWarn'>This action will permanently delete account: $usrnm.
-Are you sure? $idp</div><!-- innerWarn --></div>
+Are you sure?</div><!-- innerWarn --></div>
 		 	     
 		 	     <div class='warnOps'>
 		 	         
