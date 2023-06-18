@@ -97,6 +97,7 @@ background-color:rgba(20,20,20,.1);
 display:flex;
 justify-content:center;
 align-items:center;
+transition:.5s;
 }
 
 .imgAndBtn {
@@ -161,9 +162,29 @@ border-top-right-radius: 70% 50%;
 }
 
 
+.txtArea {
+width:90%;
+height:50px;
+padding:10px;
+margin:auto;
+border-radius:15px; background-color: rgba(200,200,220,.3);
+ color: white;
+ outline: none;
+font-size:18px;
+}
+
+.txtSav {
+float:right;
+}
 
 
+@keyframes bw 
+{
+0%{transform:scale(1.1);}
+50%{transform:scale(.9);}
+100%{transform:scale(1.1);}
 
+}
     </style>
 
     <!--     Fonts     -->
@@ -239,7 +260,7 @@ Edit Cover Page
     
     
     <div class='indexImgEditBtn' id='changeBtn1' onclick='document.getElementById(\"file1\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn1'  onclick='createCov(1);'  >Save Change</div>
+    <button class='indexImgEditBtn savBtn' id='saveBtn1'  onclick='chkOn(1);'  >Save Change</button>
     
 </div><!-- imgAndBtn --> 
     
@@ -257,7 +278,7 @@ Edit Cover Page
         <div class='num1img'>2</div>
     
     <div class='indexImgEditBtn' id='changeBtn2' onclick='document.getElementById(\"file2\").click();'  >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn2'  onclick='createCov(2);'  >Save Change</div>
+    <button class='indexImgEditBtn savBtn' id='saveBtn2'  onclick='chkOn(2);'  >Save Change</button>
     
 </div><!-- imgAndBtn -->
 
@@ -274,7 +295,7 @@ Edit Cover Page
     
     
     <div class='indexImgEditBtn' id='changeBtn3' onclick='document.getElementById(\"file3\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn3'  onclick='createCov(3);'    >Save Change</div>
+    <button class='indexImgEditBtn savBtn' id='saveBtn3'  onclick='chkOn(3);'    >Save Change</button>
     
 </div><!-- imgAndBtn --> 
     
@@ -294,14 +315,16 @@ Edit Cover Page
     
     
     <div class='indexImgEditBtn' id='changeBtn4' onclick='document.getElementById(\"file4\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn4'  onclick='createCov(4);' >Save Change</div>
+    <button class='indexImgEditBtn savBtn' id='saveBtn4'  onclick='chkOn(4);' >Save Change</button>
     
 </div><!-- imgAndBtn -->
 
-<!-- 5. -->
 
 
-<div class='imgAndBtn'  id='ihold5'     >
+<!-- 5.   ***********  CURRENTLY NOT IN USE ********************-->
+
+
+<!-- <div class='imgAndBtn'  id='ihold5'     >
     
     <div class='imgEdits secOneImg'><img src='$imgFive' id='preview5' >
     		  <input type='file' style='display:none'  id='file5' name='picture'  accept='image/*' onchange='previewFile(5)'>  
@@ -313,15 +336,14 @@ Edit Cover Page
     
     
     <div class='indexImgEditBtn' id='changeBtn5' onclick='document.getElementById(\"file5\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn5'   onclick='createCov(5);'>Save Change</div>
-    
+    <button class='indexImgEditBtn savBtn' id='saveBtn5'   onclick='createCat();'>Save Change</button>
+     
 </div><!-- imgAndBtn -->
 
 
 
-
 </div><!-- imgEditHold -->
-	
+	<br/>
 	
 	<!-- FIRST SECTION TEXT **************** -->
 	
@@ -357,14 +379,19 @@ Edit Cover Page
 <h2>SectionTwo (Text Only)</h2>
 	
 	
-	
+		<div id='txtedt1'>
 	
 			
 			    <div>
-			        <input type='text' value='$text1' id='line1' name='line1' class='editIndexText'>
+			 <textarea class='txtArea' rows='3'  value='$text1' id='nwtxt1' name='nwtxt1' class='editIndexText' onkeyup='openSav(1);'   onkeydown='openSav(1);'>$text1</textarea>
 			    </div>
+			    
+			   
 
-	    
+<button class='indexImgEditBtn savBtn txtSav' id='saveTxt1'   onclick='chkOnTxt(1);'>Save Change</button>
+     
+
+	    </div><!-- TXTEDT1 -->
 
 
 <!-- DIVISION BORDER -->
@@ -382,7 +409,9 @@ Edit Cover Page
    
  <h2>Section Three (Slideshow Images)</h2> 
     
-    
+    <div class='imgEditsHold'>
+        
+        
     <!-- 6 -->    
     
   <div class='imgAndBtn'     id='ihold6'   >
@@ -396,7 +425,7 @@ Edit Cover Page
        <div class='num1img'>6</div>
     
     <div class='indexImgEditBtn' id='changeBtn6' onclick='document.getElementById(\"file6\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn6'  onclick='createCov(6);'   >Save Change</div>
+    <button class='indexImgEditBtn savBtn' id='saveBtn6'  onclick='chkOn(6); disSav(6);'   >Save Change</button>
     
 </div><!-- imgAndBtn --> 
     
@@ -417,19 +446,28 @@ Edit Cover Page
     
     
     <div class='indexImgEditBtn' id='changeBtn7' onclick='document.getElementById(\"file7\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn7' onclick='createCov(7);'  >Save Change</div>
+    <button class='indexImgEditBtn savBtn' id='saveBtn7' onclick='chkOn(7);'  >Save Change</button>
     
 </div><!-- imgAndBtn -->
 
+</div><!-- imgEditHold -->
+	<br/>
         
 <!-- THIRD SECTION TEXT ****************** -->   
 
  <h2>Section Three (Text)</h2> 
 
-		
-		   		     <div><input   class='editIndexText'  type='text' value='$text2' id='line2' name='line2'></input>
-		        </div>
+		<div id='txtedt2'>
 		    
+		    
+		   		        <div>
+			 <textarea class='txtArea' rows='3'  value='$text2' id='nwtxt2' name='nwtxt2' class='editIndexText' onkeyup='openSav(2);'   onkeydown='openSav(2);'>$text2</textarea>
+			    </div>
+			   
+
+<button class='indexImgEditBtn savBtn txtSav' id='saveTxt2'   onclick='chkOnTxt(2);'>Save Change</button>
+     
+		  </div><!-- TXTEDT2 --> 
 		    
 		
 		
@@ -447,12 +485,17 @@ Edit Cover Page
 		
 		 <h2>Section Four (Text Only)</h2> 
 		
-			
-			               <input class='editIndexText' value='$text4' type='text' id='line3'>
-			                   
-			               </input>
+				<div id='txtedt3'>
+				    
+			                 <div>
+			 <textarea class='txtArea' rows='3'  value='$text3' id='nwtxt3' name='nwtxt3' class='editIndexText' onkeyup='openSav(3);'   onkeydown='openSav(3);'>$text3</textarea>
+			    </div>
+			   
+
+<button class='indexImgEditBtn savBtn txtSav' id='saveTxt3'   onclick='chkOnTxt(3);'>Save Change</button>
+     
 			  
-	    
+	    </div><!-- TXTEDT3 -->
 
 
 
@@ -465,7 +508,8 @@ Edit Cover Page
 <!-- FIFTH SECTION (IMAGE) ******************************* -->			
     
   <h2>Section Five (Slideshow Images)</h2>   
-    
+  
+<div class='imgEditsHold'>   
     
 		 <!-- 8 -->    
     
@@ -480,7 +524,7 @@ Edit Cover Page
        <div class='num1img'>8</div>
     
     <div class='indexImgEditBtn' id='changeBtn8' onclick='document.getElementById(\"file8\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn8' onclick='createCov(8)'>Save Change</div>
+    <button class='indexImgEditBtn savBtn' id='saveBtn8' onclick='chkOn(8);'>Save Change</button>
     
 </div><!-- imgAndBtn --> 
     
@@ -503,12 +547,14 @@ Edit Cover Page
     
     
     <div class='indexImgEditBtn' id='changeBtn9' onclick='document.getElementById(\"file9\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn9' onclick='createCov(9);'>Save Change</div>
+    <button class='indexImgEditBtn savBtn' id='saveBtn9' onclick='chkOn(9);'>Save Change</button>
     
 </div><!-- imgAndBtn -->
 
+</div><!-- imgEditHold -->
+	<br/>
 
-
+<!-- USED AS A TEST FOR AJAX RESPONSE  -->
 
     <div id='edco'></div>
     
@@ -527,12 +573,20 @@ Edit Cover Page
 		
 	 <h2>Section Six (Text Only)</h2> 
 			
-			        <input type='text' class='editIndexText' value='$text5' id='line4'></input>
+				<div id='txtedt4'>			
+				    
+				    
+			           <div>
+			 <textarea class='txtArea' rows='3'  value='$text4' id='nwtxt4' name='nwtxt4 class='editIndexText' onkeyup='openSav(4);'   onkeydown='openSav(4);'>$text4</textarea>
+			    </div>
 			   
+
+<button class='indexImgEditBtn savBtn txtSav' id='saveTxt4'   onclick='chkOnTxt(4);'>Save Change</button>
+     
 			   
-			   
-			   
-			   
+			  </div> <!-- TXTEDT4 -->
+			   <br/>
+			   <br/>
 			   
 </div><!-- INDEX EDIT HOLD -->
    
@@ -561,6 +615,9 @@ Edit Cover Page
     
 
 
+
+
+
 /*	PREVIEWING PICTURE FOR MULTIPLE IMAGES ---- USES VARIABLE OF A NUMBER ---- */
 	
 	function previewFile(x)
@@ -574,6 +631,7 @@ Edit Cover Page
  if (file)
   { reader.readAsDataURL(file);
   saveon.style='color:white; border-color:white; background-color:black;';
+  saveon.disabled= false;
   chngBtn.style=' background-color:rgba(220,220,220,.3);';
    }
    }
@@ -666,6 +724,95 @@ xhttp.send(formData);
 
 
 
+<script>
+
+function updateText(u)
+{
+
+var ntxt =
+    document.getElementById("nwtxt" + u).value;
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = 
+function()
+{
+if (this.readyState==4 && this.status==200)
+{
+document.getElementById("txtedt" + u).innerHTML=this.responseText;
+}
+};
+
+xhttp.open("POST","updateCoverTxt.php",true);
+xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+
+xhttp.send("send1=" + u + "&message1=" + ntxt);
+}
+
+</script>
+
+
+<script>
+    
+    
+// ACTIVATES THE SAVE BUTTON FOR THE TEXT EDITS    
+
+  function openSav(a)
+  {
+
+var   sbt =
+   document.getElementById('saveTxt'+ a);
+
+   sbt.style='color:white; border-color:white; background-color:black;';
+sbt.disabled = false;
+  
+  }
+
+
+//FOR THE IMAGE UPDATES
+
+function chkOn(j)
+{
+
+var   sbt =
+   document.getElementById('saveBtn'+ j);
+
+if(sbt.style.backgroundColor=='black')
+{
+sbt.innerHTML= 'Uploading...';
+sbt.style.animation='bw 3s infinite linear';
+createCov(j);
+
+}
+
+}
+
+
+
+//FOR THE TEXT BOX EDITS 
+
+function chkOnTxt(j)
+{
+
+var   sbt =
+   document.getElementById('saveTxt'+ j);
+
+if(sbt.style.backgroundColor=='black')
+{
+sbt.innerHTML= 'Uploading...';
+sbt.style.animation='bw 3s infinite linear';
+updateText(j);
+
+}
+
+}
+
+
+
+</script>
+
+
+
   
    <script> 
      
@@ -698,7 +845,31 @@ document.getElementById("edco").innerHTML=this.responseText;
 
 
 
+<script>
+    
+    
+function createCat()
+{
+var message = 
+document.getElementById("nwtxt").value;
 
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = 
+function()
+{
+if (this.readyState==4 && this.status==200)
+{
+document.getElementById("testTh").innerHTML=this.responseText;
+}
+};
+xhttp.open("POST","updateCoverTxt.php",true);
+xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+// uses userid variable for references
+xhttp.send("send1=<?php echo  "$id";?>&message1=" + message);
+}
+
+</script>	 			
 
 
 </body>

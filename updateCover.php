@@ -44,7 +44,7 @@ $sql = "SELECT cover FROM Cover WHERE id = 1 ";
 	  if($query = mysqli_query($db,$sql))
 	  {
 	  while($row = mysqli_fetch_assoc($query))
-	  {
+	  { 
 	  
 	  $imgOne = $row["cover"];
 	  
@@ -59,8 +59,11 @@ echo "
     
     
     <div class='indexImgEditBtn' id='changeBtn1' onclick='document.getElementById(\"file1\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn1'  onclick='createCov(1);'  >Save Change</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn1'  onclick='chkOn(1);'  >Save Change</div>
+ 
+ 
     
+
 
 ";
 
@@ -99,7 +102,7 @@ echo "
         <div class='num1img'>2</div>
     
     <div class='indexImgEditBtn' id='changeBtn2' onclick='document.getElementById(\"file2\").click();'  >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn2'  onclick='createCov(2);'  >Save Change</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn2'  onclick='chkOn(2);'  >Save Change</div>
     
 
 
@@ -138,7 +141,7 @@ echo "
     
     
     <div class='indexImgEditBtn' id='changeBtn3' onclick='document.getElementById(\"file3\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn3'  onclick='createCov(3);'    >Save Change</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn3'  onclick='chkOn(3);'    >Save Change</div>
     
 
 
@@ -179,7 +182,7 @@ echo "
     
     
     <div class='indexImgEditBtn' id='changeBtn4' onclick='document.getElementById(\"file4\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn4'  onclick='createCov(4);' >Save Change</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn4'  onclick='chkOn(4);' >Save Change</div>
     
 
 
@@ -220,7 +223,7 @@ echo "
     
     
     <div class='indexImgEditBtn' id='changeBtn5' onclick='document.getElementById(\"file5\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn5'   onclick='createCov(5);'>Save Change</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn5'   onclick='chkOn(5);'>Save Change</div>
     
 
 
@@ -262,7 +265,7 @@ echo "
        <div class='num1img'>6</div>
     
     <div class='indexImgEditBtn' id='changeBtn6' onclick='document.getElementById(\"file6\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn6'  onclick='createCov(6);'   >Save Change</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn6'  onclick='chkOn(6);'   >Save Change</div>
     
 
 ";
@@ -302,7 +305,7 @@ echo "
     
     
     <div class='indexImgEditBtn' id='changeBtn7' onclick='document.getElementById(\"file7\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn7' onclick='createCov(7);'  >Save Change</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn7' onclick='chkOn(7);'  >Save Change</div>
     
 
 ";
@@ -342,7 +345,7 @@ echo "
        <div class='num1img'>8</div>
     
     <div class='indexImgEditBtn' id='changeBtn8' onclick='document.getElementById(\"file8\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn8' onclick='createCov(8)'>Save Change</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn8' onclick='chkOn(8)'>Save Change</div>
     
 
 
@@ -382,7 +385,7 @@ echo "
     
     
     <div class='indexImgEditBtn' id='changeBtn9' onclick='document.getElementById(\"file9\").click();' >Change Image</div>
-    <div class='indexImgEditBtn savBtn' id='saveBtn9' onclick='createCov(9);'>Save Change</div>
+    <div class='indexImgEditBtn savBtn' id='saveBtn9' onclick='chkOn(9);'>Save Change</div>
     
 
 
