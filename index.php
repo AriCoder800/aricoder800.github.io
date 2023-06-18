@@ -43,12 +43,44 @@
 
 /* ANIMATION TO CHANGE IMAGE ---------- CHANGE HERE NOT IN MAIN.CSS --------*/
 
+<?php 
+include('db_connect.php');
+
+  $sql = "SELECT cover, covera, coverb, coverc, coverd, imageOnea, imageOneb, imagetwo, imagetwoa,imagethree, imagethreea,  textB, textC, textD, textE, textF FROM Cover ";
+	  
+	  if($query = mysqli_query($db,$sql))
+	  {
+	  while($row = mysqli_fetch_assoc($query))
+	  {
+	  
+	  $imgOne = $row["cover"];
+	  $imgTwo = $row['covera'];
+	  $imgThree = $row['coverb'];
+	  $imgFour = $row['coverc'];
+	  $imgFive = $row['coverd'];
+	  $imgSix = $row['imageOnea'];
+	  $imgSeven= $row['imageOneb'];
+	  $imgEight = $row['imagetwo'];
+	  $imgNine = $row['imagetwoa'];
+	  $imgTen = $row['imagethree'];
+	  $imgEleven= $row['imagethreea'];
+	  
+	  $text1= $row['textB'];
+	  $text2 = $row['textC'];
+	  $text3 = $row['textD'];
+	  $text4 = $row['textE'];
+	  $text5 = $row['textF'];
+	  
+	  
+echo "
+
+
 @keyframes slideShowHead {
-0%{ background-image:url('break.png');}
-25%{ background-image:url('800orangPat.png');}
-50% {background-image:url('hands3.jpg');}
-75%{ background-image:url('pen.jpg');}
-100% {background-image:url('break.png');}
+0%{ background-image:url('$imgOne');}
+25%{ background-image:url('$imgTwo');}
+50% {background-image:url('$imgThree');}
+75%{ background-image:url('$imgFour');}
+100% {background-image:url('$imgOne');}
 
 }
 
@@ -57,21 +89,26 @@
 
 
 @keyframes slideShow {
-0%{ background-image:url('newpro.jpg');}
-50%{ background-image:url('quillP.jpg');}
-100% {background-image:url('newpro.jpg');}
+0%{ background-image:url('$imgSix');}
+50%{ background-image:url('$imgSeven');}
+100% {background-image:url('$imgSix');}
 }
 
 
 
 @keyframes slideShow2 {
-0%{ background-image:url('fists.jpg');}
-50%{ background-image:url('pen.jpg');}
-100% {background-image:url('fists.jpg');}
+0%{ background-image:url('$imgEight');}
+50%{ background-image:url('$imgNine');}
+100% {background-image:url('$imgEight');}
 
 }
 
+";
 
+}
+}
+
+?>
 
     </style>
 
@@ -112,7 +149,7 @@
 	
 			<div class="bgImg fontCenter img2">
 			    <div>
-			        <p>Our mission is simple, to improve Florida one signature at a time</p>
+			        <p><?php echo"$text1"; ?></p>
 			    </div>
 	   </div>
 	    
@@ -121,7 +158,7 @@
 <!-- THIRD SECTION (IMAGE) -->			
     
 		<div class="imgSec rad1">	   
-		   		     <div><p>We as a people have power we often do not exercise, and when change is needed it is that power that can make it happen.</p>
+		   		     <div><p><?php echo"$text2"; ?></p>
 		        </div>
 		        <div class="borderGen borderTwo"></div>   
 		      
@@ -131,7 +168,7 @@
 	
 			<div class="bgImg fontCenter img2">
 			    <div>
-			               <p>Every decision our government leaders make affects our lives, we must be vigilant to their choices and guide them in the correct path</p>
+			               <p><?php echo"$text3"; ?></p>
 			    </div>
 	   </div>
 	    
@@ -156,7 +193,7 @@
 	
 			<div class="bgImg fontCenter img2">
 			    <div>
-			        <p>Our mission is simple, to improve Florida one signature at a time</p>
+			        <p><?php echo"$text4"; ?></p>
 			    </div>
 	   </div>   
 
